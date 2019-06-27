@@ -1,0 +1,2 @@
+class TournamentDeck < ApplicationRecord
+end

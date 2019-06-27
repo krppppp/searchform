@@ -1,0 +1,17 @@
+<%= form_with(model: tournament_deck, local: true) do |form| %>
+  <% if tournament_deck.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tournament_deck.errors.count, "error") %> prohibited this tournament_deck from being saved:</h2>
+
+      <ul>
+      <% tournament_deck.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
