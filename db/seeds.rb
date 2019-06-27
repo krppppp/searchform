@@ -29,7 +29,6 @@ create_attributes({name: '水' })
 create_attributes({name: '炎' })
 create_attributes({name: '風' })
 create_attributes({name: '神' })
-create_attributes({name: '闇' })
 
 # 種族
 create_tribes({name: '悪魔族' })
