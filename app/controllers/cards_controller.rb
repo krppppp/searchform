@@ -4,10 +4,26 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.all
+    @cards_search_form = CardsSearchForm.new
   end
 
   def search
+    p search_params
+    @cards_search_form = CardsSearchForm.new(search_params)
+    @cards_all = @cards_search_form.search_card(search_params)
+    @cards = Kaminari.paginate_array(@cards_all).page(params[:page]).per(10)
+    @attribute_images = [
+        'attribute_icon_dark.png',
+        'attribute_icon_light.png',
+        'attribute_icon_earth.png',
+        'attribute_icon_water.png',
+        'attribute_icon_fire.png',
+        'attribute_icon_wind.png',
+        'attribute_icon_divine.png'
+    ]
+    @effect_images = [
+        '' => '',
+    ]
     render 'result'
   end
 
@@ -74,5 +90,11 @@ class CardsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
       params.fetch(:card, {})
+    end
+
+    def search_params
+      params
+          .require(:cards_search_form)
+          .permit(:effect_category, :keyword, :name, :name_kana, :text, :card_monster1, :card_monster2, :tribe, :level_low, :level_high, :level, :rank, :pendulum_blue_low, :pendulum_blue_high, :pendulum_red_low, :pendulum_red_high, :link_low, :link_high, :left_up, :up, :right_up, :left, :right, :left_down, :down, :right_down, :offensive_power_low, :offensive_power_high, :offensive_power_nil, :deffensive_power_low, :deffensive_power_high, :deffensive_power_nil, :no_restriction, :semi_restriction, :restriction, :ban)
     end
 end

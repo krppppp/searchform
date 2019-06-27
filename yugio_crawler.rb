@@ -53,7 +53,7 @@ today = date.year.to_s + '-' + date.month.to_s + '-' + date.day.to_s
 
 #chromeを開く
 options = Selenium::WebDriver::Chrome::Options.new
-#options.add_argument('--headless')
+# options.add_argument('--headless')
 driver = Selenium::WebDriver.for :chrome, options: options
 #driver = Selenium::WebDriver.for(:chrome)
 wait = Selenium::WebDriver::Wait.new(:timeout => 2000)
@@ -107,19 +107,28 @@ begin
               name_kana = ''
 
               begin
-                name_kana = driver.find_element(:xpath, '//*[@id="broad_title"]/div/h1/span[1]').text
+                name_kana = driver.find_element(:xpath, '//*[@id="broad_title"]/div/h1/span').text if driver.find_element(:xpath, '//*[@id="broad_title"]/div/h1/span')
+              rescue => e
+
+              end
+
+              begin
+                name_kana = driver.find_element(:xpath, '//*[@id="broad_title"]/div/h1/span[1]').text if driver.find_element(:xpath, '//*[@id="broad_title"]/div/h1/span[1]')
               rescue => e
                 # p e
               end
 
               begin
-                e_name = driver.find_element(:xpath, '//*[@id="broad_title"]/div/h1/span[2]').text
+                e_name = driver.find_element(:xpath, '//*[@id="broad_title"]/div/h1/span[2]').text if driver.find_element(:xpath, '//*[@id="broad_title"]/div/h1/span[2]')
               rescue => e
                 # p e
               end
 
               begin
-                name = driver.find_element(:xpath, '//*[@id="broad_title"]/div/h1').text.to_s.gsub(/^#{name_kana.to_s}../, '').gsub(/..#{e_name.to_s}$/, '')
+                p driver.find_element(:xpath, '//*[@id="broad_title"]/div/h1').text.to_s
+                p driver.find_element(:xpath, '//*[@id="broad_title"]/div/h1').text.to_s.gsub(/\r\n|\r|\n/, ',')
+                      # .gsub(/#{e_name.to_s}$/, '').gsub(/\r\n|\r|\n/, "")
+                name = driver.find_element(:xpath, '//*[@id="broad_title"]/div/h1').text.to_s.gsub(/\r\n|\r|\n/, ',') if driver.find_element(:xpath, '//*[@id="broad_title"]/div/h1')
               rescue => e
                 # p e
               end
@@ -281,16 +290,20 @@ begin
                   if driver.find_element(:xpath, "//*[@id='pack_list']/table/tbody/tr[#{z}]")
                     release_date = driver.find_element(:xpath, "//*[@id='pack_list']/table/tbody/tr[#{z}]/td[1]").text
                     number = driver.find_element(:xpath, "//*[@id='pack_list']/table/tbody/tr[#{z}]/td[2]").text
-                    name = driver.find_element(:xpath, "//*[@id='pack_list']/table/tbody/tr[#{z}]/td[3]/b").text
-                    specification = driver.find_element(:xpath, "//*[@id='pack_list']/table/tbody/tr[#{z}]/td[4]/img").attribute('alt')
+                    r_name = driver.find_element(:xpath, "//*[@id='pack_list']/table/tbody/tr[#{z}]/td[3]/b").text
+                    specification = ''
+                    begin
+                      specification = driver.find_element(:xpath, "//*[@id='pack_list']/table/tbody/tr[#{z}]/td[4]/img").attribute('alt') if driver.find_element(:xpath, "//*[@id='pack_list']/table/tbody/tr[#{z}]/td[4]/img")
+                    rescue => e
+                    end
                     p release_date
                     p number
-                    p name
+                    p r_name
                     p specification
                     core = {}
                     core.store("release_date", release_date)
                     core.store("number", number)
-                    core.store("name", name)
+                    core.store("r_name", r_name)
                     core.store("specification", specification)
                     series.push(core)
                   else
@@ -362,7 +375,7 @@ begin
                 record = Record.create(
                   release_date: Date.strptime(g['release_date'],'%Y-%m-%d'),
                   number: g['number'],
-                  name: g['name'],
+                  name: g['r_name'],
                   specification: g['specification'],
                 )
 
