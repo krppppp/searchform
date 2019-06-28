@@ -122,6 +122,13 @@
                   <td colspan="3">
                     <b>
                       <%= card.name %>
+                      <% if card.card_prohibition? %>
+                        <font color="red">禁止</font>
+                      <% elsif card.card_restriction? %>
+                        <font color="#7B68EE">制限</font>
+                      <% elsif card.card_semilimit? %>
+                        <font color="#6B8E23">準制限</font>
+                      <% end %>
                     </b>
 　                </td>
                   <td colspan="2">
@@ -1133,38 +1140,6 @@
                     <div class="checkbox"><input type="checkbox" name="limit_id[]" checked="checked" value="3" id="CardLimitId3" /><label for="CardLimitId3" class="selected">制限</label></div>
                     <div class="checkbox"><input type="checkbox" name="limit_id[]" checked="checked" value="4" id="CardLimitId4" /><label for="CardLimitId4" class="selected">禁止</label></div>
                   </td>
-                </tr>
-                <tr>
-                  <th>評価</th>
-                  <td colspan="3">
-                    <select name="avg_point_f" style="width:70px;display:inline-block;" id="CardAvgPointF">
-                      <option value=""></option>
-                      <option value="0">0</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                      <option value="7">7</option>
-                      <option value="8">8</option>
-                      <option value="9">9</option>
-                      <option value="10">10</option>
-                    </select>			～
-                    <select name="avg_point_t" style="width:70px;display:inline-block;" id="CardAvgPointT">
-                      <option value=""></option>
-                      <option value="0">0</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                      <option value="7">7</option>
-                      <option value="8">8</option>
-                      <option value="9">9</option>
-                      <option value="10">10</option>
-                    </select>		</td>
                 </tr>
               </table>
               <div style="text-align:center;width:100%;"><input  style="width:200px;height:50px;" type="submit" value="検索"/></div>
