@@ -67,7 +67,7 @@ begin
 
   finished = []
 
-  1.upto(98) do |x|
+  13.upto(98) do |x|
     begin
       begin
         driver.get "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&sess=2&sort=1&rp=100&page=" + x.to_s
@@ -79,21 +79,18 @@ begin
               # 普通
               flag = 0
 
-
-              begin
-                if driver.find_element(:xpath, '//*[@id="article_body"]/table/tbody/tr/td/div[3]/ul/li/dl/dt/span[2]/span/img')
-                  # 禁止
-                  flag = 1 if driver.find_element(:xpath, '//*[@id="article_body"]/table/tbody/tr/td/div[3]/ul/li/dl/dt/span[2]/span/img').attribute('alt') == '禁止'
-                  # 制限
-                  flag = 2 if driver.find_element(:xpath, '//*[@id="article_body"]/table/tbody/tr/td/div[3]/ul/li/dl/dt/span[2]/span/img').attribute('alt') == '制限'
-                  # 準制限
-                  flag = 3 if driver.find_element(:xpath, '//*[@id="article_body"]/table/tbody/tr/td/div[3]/ul/li/dl/dt/span[2]/span/img').attribute('alt') == '準制限'
-                end
-              rescue => e
-                # p e
-              end
-
-
+              # begin
+              #   if driver.find_element(:xpath, '//*[@id="article_body"]/table/tbody/tr/td/div[3]/ul/li/dl/dt/span[2]/span/img')
+              #     # 禁止
+              #     flag = 1 if driver.find_element(:xpath, '//*[@id="article_body"]/table/tbody/tr/td/div[3]/ul/li/dl/dt/span[2]/span/img').attribute('alt') == '禁止'
+              #     # 制限
+              #     flag = 2 if driver.find_element(:xpath, '//*[@id="article_body"]/table/tbody/tr/td/div[3]/ul/li/dl/dt/span[2]/span/img').attribute('alt') == '制限'
+              #     # 準制限
+              #     flag = 3 if driver.find_element(:xpath, '//*[@id="article_body"]/table/tbody/tr/td/div[3]/ul/li/dl/dt/span[2]/span/img').attribute('alt') == '準制限'
+              #   end
+              # rescue => e
+              #   # p e
+              # end
 
               driver.find_element(:xpath, "//*[@id='article_body']/table/tbody/tr/td/div[3]/ul/li[#{y}]").click()
               puts "#{((x.to_i-1)*100.to_i+y.to_i).to_s}個目"
@@ -275,6 +272,16 @@ begin
                   if driver.find_elements(:xpath, "//*[@id=" + '"' + "details" + '"' + "]/tbody/tr[#{num.to_s}]/td/div/div/b")
                     if driver.find_element(:xpath, "//*[@id=" + '"' + "details" + '"' + "]/tbody/tr[#{num.to_s}]/td/div/div/b").text == 'カードテキスト'
                       text = driver.find_element(:xpath, "//*[@id=" + '"' + "details" + '"' + "]/tbody/tr[#{num.to_s}]/td/div").text.to_s
+                      begin
+                        if driver.find_element(:xpath, "//*[@id=" + '"' + "details" + '"' + "]/tbody/tr[#{num.to_s}]/td/div/div[2]/span")
+                          p driver.find_element(:xpath, "//*[@id=" + '"' + "details" + '"' + "]/tbody/tr[#{num.to_s}]/td/div/div[2]/span").text
+                          flag = 1 if driver.find_element(:xpath, "//*[@id=" + '"' + "details" + '"' + "]/tbody/tr[#{num.to_s}]/td/div/div[2]/span").text == '禁止'
+                          flag = 2 if driver.find_element(:xpath, "//*[@id=" + '"' + "details" + '"' + "]/tbody/tr[#{num.to_s}]/td/div/div[2]/span").text == '制限'
+                          flag = 3 if driver.find_element(:xpath, "//*[@id=" + '"' + "details" + '"' + "]/tbody/tr[#{num.to_s}]/td/div/div[2]/span").text == '準制限'
+                        end
+                      rescue => e
+                      end
+
                     end
                   end
                 rescue => e

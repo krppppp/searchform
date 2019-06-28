@@ -95,7 +95,7 @@
             <br style="clear:both;"/>
 
             <h2 class="common">遊戯王カード検索</h2>
-            <%= form_for @cards_search_form, url: card_search_path, method: :post, html: { id: "searchResultForm"} do |f| %>
+            <%= form_for @cards_search_form, url: card_search_path, method: :get, html: { id: "searchResultForm"} do |f| %>
               <style>
             .kouka_popup {
               border:5px solid black;
@@ -505,7 +505,7 @@
                   <td colspan="3">
                     <%= f.select :tribe, Tribe.all.map{|m| [m.name, m.id]}, {include_blank: true}, id: "CardTypeId"  %>
                     ／
-                    <%= f.select :tribe, Attribute.all.map{|m| [m.name, m.id]}, {include_blank: true}, style: "width:70px;display:inline-block;",  id: "CardAttributeId" %>
+                    <%= f.select :attribute, Attribute.all.map{|m| [m.name, m.id]}, {include_blank: true}, style: "width:70px;display:inline-block;",  id: "CardAttributeId" %>
                     属性
                   </td>
                 </tr>

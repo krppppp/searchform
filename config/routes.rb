@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :attributes
 
   root 'cards#index'
-  post '/cards/search', to: 'cards#search', as: 'card_search'
+  get '/cards/search', to: 'cards#search', as: 'card_search'
   resources :cards
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
