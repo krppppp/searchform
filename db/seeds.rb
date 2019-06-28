@@ -361,18 +361,18 @@ create_categories({name: 'Ｕ.Ａ.(ｳﾙﾄﾗｱｽﾘｰﾄ)', title: 2})
 create_user({name: 'asdf', email: 'asdf@asdf', password: 'asdfasdf'})
 
 # サンプルデッキ
-create_decks({name: '闇シリーズ', category_id: 1, user_id: 1})
+1.upto(5) do |num|
+  create_decks({name: "シリーズ#{num}", category_id: 1, user_id: 1})
+end
 
 # サンプルデッキカード
-create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 0})
-create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 0})
-create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 0})
-create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 1})
-create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 1})
-create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 1})
-create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 2})
-create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 2})
-create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 2})
+
+1.upto(5) do |num|
+  40.times do |card|
+    create_deck_cards({deck_id: num, card_id: Card.all.sample.id, deck_type: rand(0..2), count: rand(1..3)})
+  end
+end
+
 
 # サンプルコメント
 create_deck_comments({deck_id: 1, user_id: 1, comment: 'いいね！', flag: 0})

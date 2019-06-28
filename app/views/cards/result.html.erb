@@ -116,7 +116,7 @@
               <% @cards.each do |card| %>
                 <tr>
                   <td rowspan="3" class="kouka_monstar"  style='text-align: center;'>
-                    <img src="/assets/sample.png" width="120px">
+                    <%= image_tag preview(card), width: "120px" %>
                   </td>
 
                   <td colspan="3">
@@ -158,8 +158,14 @@
               <% end %>
 
             </table>
+            <%= paginate @cards %>
             <div style="margin:20px 0px;">
-              <span class="current pagenumbers">1</span> <span class="pagenumbers"><a href="https://yugioh-list.com/searches/result/page:2?effect=1000&amp;level1=1&amp;level2=1">2</a></span>　<span class="next"><a href="https://yugioh-list.com/searches/result/page:2?effect=1000&amp;level1=1&amp;level2=1" rel="next">次へ</a></span>　<span><a href="https://yugioh-list.com/searches/result/page:2?effect=1000&amp;level1=1&amp;level2=1" rel="last"> &gt;&gt;</a></span></div><div action="https://yugioh-list.com/searches/result" name="f" id="searchResultForm" method="get" accept-charset="utf-8">
+              <span class="current pagenumbers">1</span>
+              <span class="pagenumbers"><a href="https://yugioh-list.com/searches/result/page:2?effect=1000&amp;level1=1&amp;level2=1">2</a></span>　
+              <span class="next"><a href="https://yugioh-list.com/searches/result/page:2?effect=1000&amp;level1=1&amp;level2=1" rel="next">次へ</a></span>　
+              <span><a href="https://yugioh-list.com/searches/result/page:2?effect=1000&amp;level1=1&amp;level2=1" rel="last"> &gt;&gt;</a></span>
+            </div>
+            <div action="https://yugioh-list.com/searches/result" name="f" id="searchResultForm" method="get" accept-charset="utf-8">
             <h2 class="common" id="search_form">検索条件変更</h2>
             <%= form_for @cards_search_form, url: card_search_path, method: :get, html: { id: "searchResultForm"} do |f| %>
               <style>

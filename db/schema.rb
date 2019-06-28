@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_06_24_150504) do
     t.integer "flag", comment: "フラグ"
     t.string "original_url", comment: "サイト元URL"
     t.text "innerhtml", comment: "innerhtml"
+    t.integer "price", comment: "価格"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["attribute_id"], name: "index_cards_on_attribute_id"
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_06_24_150504) do
     t.bigint "deck_id", comment: "デッキ"
     t.bigint "card_id", comment: "カード"
     t.integer "deck_type", comment: "デッキタイプ"
+    t.integer "count", comment: "枚数"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["card_id"], name: "index_deck_cards_on_card_id"
