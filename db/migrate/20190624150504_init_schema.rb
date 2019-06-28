@@ -35,6 +35,7 @@ class InitSchema < ActiveRecord::Migration[5.2]
       t.integer        :flag, comment: 'フラグ'
       t.string         :original_url, comment: 'サイト元URL'
       t.text           :innerhtml, comment: 'innerhtml'
+      t.integer        :price, comment: '価格'
       t.timestamps
     end
 
@@ -115,6 +116,7 @@ class InitSchema < ActiveRecord::Migration[5.2]
       t.references     :deck, comment: 'デッキ'
       t.references     :card, comment: 'カード'
       t.integer              :deck_type, comment: 'デッキタイプ'
+      t.integer              :count, comment: '枚数'
       t.timestamps
     end
 
