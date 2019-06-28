@@ -623,7 +623,13 @@
         <div class="input select"><input type="hidden" name="data[Login][check]" value="" id="LoginCheck"/>
 
           <div class="checkbox"><input type="checkbox" name="data[Login][check][]" value="1" id="LoginCheck1" /><label for="LoginCheck1">cokkieに記憶</label></div>
-        </div>      <input  style="max-width: 200px;" onclick="my_login();return false;" type="submit" value="ログイン"/>            </form></div>
+        </div>
+
+        <input  style="max-width: 200px;" onclick="my_login();return false;" type="submit" value="ログイン"/>
+
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, style: "max-width: 200px;" %>
+
+      </form></div>
     <br class="clear">																		<p style="margin:0px;">
     <a href="https://yugioh-list.com/pages/site_search">[!] サイト内検索</a><br>　
     <a href="https://yugioh-list.com/pages/display">[表示切替]</a>　

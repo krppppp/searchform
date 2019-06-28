@@ -56,18 +56,32 @@ ActiveRecord::Schema.define(version: 2019_06_24_150504) do
   create_table "deck_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "deck_id", comment: "デッキ"
     t.bigint "card_id", comment: "カード"
+    t.integer "deck_type", comment: "デッキタイプ"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["card_id"], name: "index_deck_cards_on_card_id"
     t.index ["deck_id"], name: "index_deck_cards_on_deck_id"
   end
 
+  create_table "deck_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", comment: "ユーザ"
+    t.bigint "deck_id", comment: "デッキ"
+    t.text "comment", comment: "コメント"
+    t.integer "flag", comment: "フラグ"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deck_id"], name: "index_deck_comments_on_deck_id"
+    t.index ["user_id"], name: "index_deck_comments_on_user_id"
+  end
+
   create_table "decks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", comment: "名前"
     t.bigint "category_id", comment: "カテゴリ"
+    t.bigint "user_id", comment: "ユーザ"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_decks_on_category_id"
+    t.index ["user_id"], name: "index_decks_on_user_id"
   end
 
   create_table "record_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -101,6 +115,7 @@ ActiveRecord::Schema.define(version: 2019_06_24_150504) do
     t.string "title", comment: "タイトル"
     t.date "date"
     t.string "place", comment: "開催場所"
+    t.integer "stage", comment: "大会レベル"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
