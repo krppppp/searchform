@@ -18,7 +18,37 @@ end
 
 def create_categories(hash)
   category = Category.new(hash)
-  category.save
+  category.save!
+end
+
+def create_user(hash)
+  user = User.new(hash)
+  user.save
+end
+
+def create_decks(hash)
+  deck = Deck.new(hash)
+  deck.save
+end
+
+def create_deck_cards(hash)
+  deck_card = DeckCard.new(hash)
+  deck_card.save
+end
+
+def create_deck_comments(hash)
+  deck_comment = DeckComment.new(hash)
+  deck_comment.save
+end
+
+def create_tournaments(hash)
+  tournament = Tournament.new(hash)
+  tournament.save
+end
+
+def create_tournament_decks(hash)
+  tournament_deck = TournamentDeck.new(hash)
+  tournament_deck.save
 end
 
 # 属性
@@ -326,3 +356,29 @@ create_categories({name: 'ＰＳＹ(サイ)フレーム', title: 2})
 create_categories({name: 'ＲＲ（ﾚｲﾄﾞ・ﾗﾌﾟﾀｰｽﾞ）', title: 2})
 create_categories({name: 'ＳＰＹＲＡＬ(ｽﾊﾟｲﾗﾙ)', title: 2})
 create_categories({name: 'Ｕ.Ａ.(ｳﾙﾄﾗｱｽﾘｰﾄ)', title: 2})
+
+# サンプルユーザ
+create_user({name: 'asdf', email: 'asdf@asdf', password: 'asdfasdf'})
+
+# サンプルデッキ
+create_decks({name: '闇シリーズ', category_id: 1, user_id: 1})
+
+# サンプルデッキカード
+create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 0})
+create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 0})
+create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 0})
+create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 1})
+create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 1})
+create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 1})
+create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 2})
+create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 2})
+create_deck_cards({deck_id: 1, card_id: Card.all.sample.id, deck_type: 2})
+
+# サンプルコメント
+create_deck_comments({deck_id: 1, user_id: 1, comment: 'いいね！', flag: 0})
+
+# サンプル大会
+create_tournaments({title: '関東大会', date: Date.new(2019, 6, 30), place: '東京ビックサイト', stage: STAGE.map{|m| m.second}.sample})
+
+# サンプル大会デッキ
+create_tournament_decks({tournament_id: 1, deck_id: 1})

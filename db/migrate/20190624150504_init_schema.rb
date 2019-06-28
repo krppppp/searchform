@@ -104,8 +104,9 @@ class InitSchema < ActiveRecord::Migration[5.2]
 
     # デッキ
     create_table :decks, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-      t.string     :name, comment: '名前'
+      t.string         :name, comment: '名前'
       t.references     :category, comment: 'カテゴリ'
+      t.references     :user, comment: 'ユーザ'
       t.timestamps
     end
 
@@ -113,7 +114,7 @@ class InitSchema < ActiveRecord::Migration[5.2]
     create_table :deck_cards, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
       t.references     :deck, comment: 'デッキ'
       t.references     :card, comment: 'カード'
-
+      t.integer              :deck_type, comment: 'デッキタイプ'
       t.timestamps
     end
 
@@ -122,6 +123,7 @@ class InitSchema < ActiveRecord::Migration[5.2]
       t.string         :title, comment: 'タイトル'
       t.date           :date, commnet: '開催日'
       t.string         :place, comment: '開催場所'
+      t.integer        :stage, comment: '大会レベル'
 
       t.timestamps
     end
@@ -130,6 +132,16 @@ class InitSchema < ActiveRecord::Migration[5.2]
     create_table :tournament_decks, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
       t.references     :tournament, comment: '大会'
       t.references     :deck, comment: 'デッキ'
+
+      t.timestamps
+    end
+
+    # デッキへのコメント
+    create_table :deck_comments, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+      t.references     :user, comment: 'ユーザ'
+      t.references     :deck, comment: 'デッキ'
+      t.text                 :comment, comment: 'コメント'
+      t.integer              :flag, comment: 'フラグ'
 
       t.timestamps
     end
