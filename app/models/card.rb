@@ -3,4 +3,6 @@ class Card < ApplicationRecord
   belongs_to :tribe
 
   enum flag: %i(none prohibition restriction semilimit), _prefix: :card
+
+  mount_uploader :image, ImageUploader
 end

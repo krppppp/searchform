@@ -44,7 +44,9 @@ class CardsController < ApplicationController
   # POST /cards
   # POST /cards.json
   def create
-    @card = Card.new(card_params)
+    @card = Card.new(create_params)
+    @card.attribute_id = 1
+    @card.tribe_id = 1
 
     respond_to do |format|
       if @card.save
@@ -90,6 +92,12 @@ class CardsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
       params.fetch(:card, {})
+    end
+
+    def create_params
+      params
+          .require(:card)
+          .permit(:image)
     end
 
     def search_params
