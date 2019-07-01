@@ -56,8 +56,13 @@ class DecksController < ApplicationController
   def destroy
     @deck.destroy
     respond_to do |format|
-      format.html { redirect_to decks_url, notice: 'Deck was successfully destroyed.' }
-      format.json { head :no_content }
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] == 'users'
+        format.html { redirect_to user_path(current_user), notice: 'Deck was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to decks_url, notice: 'Deck was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 

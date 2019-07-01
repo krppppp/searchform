@@ -1,6 +1,12 @@
 class CardsController < ApplicationController
   before_action :set_card, only: [:show, :edit, :update, :destroy], except: [:search]
 
+  def ajax_card
+    @cards_search_form = CardsSearchForm.new(ajax_params)
+    @cards = @cards_search_form.search_deck_cards(ajax_params)
+    render json: {status: 200, data: @cards.blank? ? [] : @cards.first(50).map{|s| {id: s.id, name: s.name, attribute: s.attribute_id, type: s.categolized? }}}
+  end
+
   # GET /cards
   # GET /cards.json
   def index
@@ -104,5 +110,11 @@ class CardsController < ApplicationController
       params
           .require(:cards_search_form)
           .permit(:effect_category, :keyword, :name, :name_kana, :text, :card_monster1, :card_monster2, :tribe, :attribute, :level_low, :level_high, :level, :rank, :pendulum_blue_low, :pendulum_blue_high, :pendulum_red_low, :pendulum_red_high, :link_low, :link_high, :left_up, :up, :right_up, :left, :right, :left_down, :down, :right_down, :offensive_power_low, :offensive_power_high, :offensive_power_nil, :deffensive_power_low, :deffensive_power_high, :deffensive_power_nil, :no_restriction, :semi_restriction, :restriction, :ban)
+    end
+
+    def ajax_params
+      params
+          .require(:cards_search_form)
+          .permit(:deck_keyword, :deck_category, :deck_type, :deck_attribute, :deck_level, :deck_tribe, :deck_restriction)
     end
 end
