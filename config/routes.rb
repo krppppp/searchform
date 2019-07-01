@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # ajax
+  post '/ajax/cards', to: 'cards#ajax_card', as: 'ajax_card'
+
   resources :tribes
   resources :tournament_decks
   resources :deck_cards
@@ -10,6 +13,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :species
   resources :attributes
+  resources :users
 
   root 'cards#index'
   get '/cards/search', to: 'cards#search', as: 'card_search'

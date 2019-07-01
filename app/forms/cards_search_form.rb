@@ -1,4 +1,5 @@
 class CardsSearchForm < FormObject
+  # カード検索時
   attribute :effect_category, String
   attribute :keyword, String
   attribute :name, Boolean
@@ -37,6 +38,15 @@ class CardsSearchForm < FormObject
   attribute :restriction, Boolean
   attribute :ban, Boolean
 
+  # デッキ作成時，編集時
+  attribute :deck_keyword, String
+  attribute :deck_category, Integer
+  attribute :deck_type, Integer
+  attribute :deck_attribute, Integer
+  attribute :deck_level, Integer
+  attribute :deck_tribe, Integer
+  attribute :deck_restriction, Integer
+
   # <ActionController::Parameters {"effect_category"=>"", "keyword"=>"Aggiba", "name"=>"1", "name_kana"=>"1", "text"=>"1",
   # "card_monster1"=>"2", "card_monster2"=>"50", "tribe"=>"4", "level_low"=>"2", "level_high"=>"4", "level"=>"1", "rank"=>"1",
   # "pendulum_blue_low"=>"3", "pendulum_blue_high"=>"5", "pendulum_red_low"=>"2", "pendulum_red_high"=>"4",
@@ -44,7 +54,6 @@ class CardsSearchForm < FormObject
   # "down"=>"0", "right_down"=>"0", "offensive_power_low"=>"300", "offensive_power_high"=>"200", "offensive_power_nil"=>"1",
   # "deffensive_power_low"=>"300", "deffensive_power_high"=>"300", "deffensive_power_nil"=>"1", "no_restriction"=>"1",
   # "semi_restriction"=>"1", "restriction"=>"1", "ban"=>"1"} permitted: true>
-
 
   def search_card form
     result = Card.all
@@ -95,6 +104,14 @@ class CardsSearchForm < FormObject
       elsif form[:text]
         result = result.where(
             'text LIKE ?',
+            "%#{form[:keyword]}%")
+      else
+        result = result.where(
+            'name LIKE ? or
+            name_kana LIKE ? or
+            text LIKE ?',
+            "%#{form[:keyword]}%",
+            "%#{form[:keyword]}%",
             "%#{form[:keyword]}%")
       end
     end
@@ -192,8 +209,65 @@ class CardsSearchForm < FormObject
     result2 = result.where(flag: 'semilimit') if form[:semi_restriction] == '1'
     result3 = result.where(flag: 'restriction') if form[:restriction] == '1'
     result4 = result.where(flag: 'prohibition') if form[:ban] == '1'
-    result = [result1, result2, result3, result4].flatten.compact.blank? ? result : result.uniq.sort
+    result = [result1, result2, result3, result4].flatten.compact.blank? ? result : [result1, result2, result3].flatten.compact.uniq.sort
 
     return result
+  end
+
+  def search_deck_cards form
+    result = Card.all
+
+    # キーワード
+    if !form[:deck_keyword].blank?
+      result = result.where(
+          'name LIKE ? or
+            name_kana LIKE ? or
+            text LIKE ?',
+          "%#{form[:deck_keyword]}%",
+          "%#{form[:deck_keyword]}%",
+          "%#{form[:deck_keyword]}%")
+    end
+
+    # カテゴリ
+    if !form[:deck_type].blank?
+      #TODO データ整形が必要
+    end
+
+    # 属性
+    if !form[:deck_attribute].blank?
+
+      result = result.where(attribute_id: form[:deck_attribute])
+    end
+
+    # レベル
+    if !form[:deck_level].blank?
+      result = result.where('level = ?', form[:deck_level].to_i)
+    end
+
+    # 種族
+    if !form[:deck_tribe].blank?
+      result = result.where(tribe_id: form[:deck_tribe])
+    end
+
+    # 制限
+    result1 = result.where(flag: 'none') if form[:deck_restriction] == '3'
+    result2 = result.where(flag: 'semilimit') if form[:deck_restriction] == '2'
+    result3 = result.where(flag: 'restriction') if form[:deck_restriction] == '1'
+    result = [result1, result2, result3].flatten.compact.blank? ? result : [result1, result2, result3].flatten.compact.uniq.sort
+
+    # 種類
+    if !form[:deck_type].blank?
+      if form[:deck_type] == '1'
+        result = result.map{|m| m if m.monster? }.compact
+      elsif form[:deck_type] == '2'
+        result = result.map{|m| m if m.magic? }.compact
+      elsif form[:deck_type] == '3'
+        result = result.map{|m| m if m.trap? }.compact
+      elsif form[:deck_type] == '4'
+        result = result.map{|m| m if m.extra? }.compact
+      end
+    end
+
+    return result.map
   end
 end

@@ -56,7 +56,7 @@ options = Selenium::WebDriver::Chrome::Options.new
 # options.add_argument('--headless')
 driver = Selenium::WebDriver.for :chrome, options: options
 #driver = Selenium::WebDriver.for(:chrome)
-wait = Selenium::WebDriver::Wait.new(:timeout => 2000)
+wait = Selenium::WebDriver::Wait.new(:timeout => 10000)
 
 
 begin
@@ -67,14 +67,14 @@ begin
 
   finished = []
 
-  13.upto(98) do |x|
+  [84].each do |x|
     begin
       begin
         driver.get "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&sess=2&sort=1&rp=100&page=" + x.to_s
         puts "#{x}ページ目"
 
         begin
-          1.upto(100) do |y|
+          2.upto(100) do |y|
             begin
               # 普通
               flag = 0
