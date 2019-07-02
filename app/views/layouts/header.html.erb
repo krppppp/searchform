@@ -1,0 +1,54 @@
+<nav id="nav">
+  <ul style="min-width: 960px;">
+    <li>
+      <%= link_to 'Home', root_path %>
+    </li>
+    <li>
+      <%= link_to 'カードリスト▼', root_path %>
+      <ul>
+        <li><%= link_to 'カード検索', root_path %></li>
+        <li><a href="http://localhost:3000/cards/search?utf8=%E2%9C%93&cards_search_form%5Beffect_category%5D=&cards_search_form%5Bkeyword%5D=&cards_search_form%5Bname%5D=0&cards_search_form%5Bname%5D=1&cards_search_form%5Bname_kana%5D=0&cards_search_form%5Bname_kana%5D=1&cards_search_form%5Btext%5D=0&cards_search_form%5Btext%5D=1&cards_search_form%5Bcard_monster1%5D=&cards_search_form%5Bcard_monster2%5D=&cards_search_form%5Btribe%5D=&cards_search_form%5Battribute%5D=&cards_search_form%5Blevel_low%5D=&cards_search_form%5Blevel_high%5D=&cards_search_form%5Blevel%5D=0&cards_search_form%5Blevel%5D=1&cards_search_form%5Brank%5D=0&cards_search_form%5Brank%5D=1&cards_search_form%5Bpendulum_blue_low%5D=&cards_search_form%5Bpendulum_blue_high%5D=&cards_search_form%5Bpendulum_red_low%5D=&cards_search_form%5Bpendulum_red_high%5D=&cards_search_form%5Blink_low%5D=&cards_search_form%5Blink_high%5D=&cards_search_form%5Bleft_up%5D=0&cards_search_form%5Bup%5D=0&cards_search_form%5Bright_up%5D=0&cards_search_form%5Bleft%5D=0&cards_search_form%5Bright%5D=0&cards_search_form%5Bleft_down%5D=0&cards_search_form%5Bdown%5D=0&cards_search_form%5Bright_down%5D=0&cards_search_form%5Boffensive_power_low%5D=&cards_search_form%5Boffensive_power_high%5D=&cards_search_form%5Boffensive_power_nil%5D=0&cards_search_form%5Bdeffensive_power_low%5D=&cards_search_form%5Bdeffensive_power_high%5D=&cards_search_form%5Bdeffensive_power_nil%5D=0&cards_search_form%5Bno_restriction%5D=0&cards_search_form%5Bsemi_restriction%5D=0&cards_search_form%5Bsemi_restriction%5D=1&cards_search_form%5Brestriction%5D=0&cards_search_form%5Brestriction%5D=1&cards_search_form%5Bban%5D=0&cards_search_form%5Bban%5D=1&commit=%E6%A4%9C%E7%B4%A2">禁止・制限カード</a></li>
+      </ul>
+    </li>
+    <li>
+      <%= link_to 'デッキ▼', decks_path %>
+      <ul>
+        <li><%= link_to 'デッキ一覧', decks_path %></li>
+        <li>
+          <% if current_user %>
+            <%= link_to 'マイデッキ作成', new_deck_path %>
+            <%= link_to 'マイデッキ', user_path(current_user) %>
+          <% end %>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <%= link_to '大会▼', tournaments_path %>
+      <ul>
+        <li><%= link_to '大会一覧', tournaments_path %></li>
+        <li><a href="https://yugioh-list.com/links">サイト情報</a></li>
+        <li><a href="mailto:master@yugioh-list.com?subject=【お問い合わせ】遊戯王カードリスト・評価・オリカ&amp;body=https://yugioh-list.com/decks/dtl/60709">お問い合わせ</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="60709#">ユーザ ▼</a>
+      <ul>
+        <li>
+          <% if current_user %>
+            <%= link_to 'マイページ', user_path(current_user) %>
+          <% else %>
+            <%= link_to '↓ ログイン', new_user_session_path %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to 'ユーザ登録', new_user_registration_path %>
+        </li>
+        <% if current_user.user_admin? %>
+          <li>
+            <%= link_to '大会登録', new_tournament_path %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  </ul>
+</nav>

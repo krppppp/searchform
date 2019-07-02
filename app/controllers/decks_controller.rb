@@ -1,10 +1,12 @@
 class DecksController < ApplicationController
   before_action :set_deck, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   # GET /decks
   # GET /decks.json
   def index
-    @decks = Deck.all
+    @decks_all = Deck.all
+    @decks = Kaminari.paginate_array(@decks_all).page(params[:page]).per(5)
   end
 
   # GET /decks/1
@@ -25,14 +27,24 @@ class DecksController < ApplicationController
   # POST /decks.json
   def create
     @deck = Deck.new(deck_params)
+    @deck.user = current_user
 
     respond_to do |format|
-      if @deck.save
-        format.html { redirect_to @deck, notice: 'Deck was successfully created.' }
-        format.json { render :show, status: :created, location: @deck }
+      if @deck.save!
+        params.permit![:deck][:main].keys.each do |key|
+          deck_card = params.permit![:deck][:main][key]
+          DeckCard.create!(card_id: deck_card['id'], deck: @deck, deck_type: Card.find(deck_card['id']).num_categolized?, count: deck_card['count'])
+        end
+
+        params.permit![:deck][:side].keys.each do |key|
+          deck_card = params.permit![:deck][:side][key]
+          DeckCard.create!(card_id: deck_card['id'], deck: @deck, deck_type: Card.find(deck_card['id']).num_categolized?, count: deck_card['count'])
+        end
+
+        # format.html { redirect_to @deck, notice: 'Deck was successfully created.' }
+        format.json { render json: {status: 200, deck_id: @deck.id} }
       else
-        format.html { render :new }
-        format.json { render json: @deck.errors, status: :unprocessable_entity }
+        format.json { render json: {status: 400, deck_id: nil} }
       end
     end
   end
@@ -72,8 +84,11 @@ class DecksController < ApplicationController
       @deck = Deck.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, only allow he white list through.
     def deck_params
-      params.fetch(:deck, {})
+      params
+          .require(:deck)
+          .permit(:name, :category_id, :main, :side)
     end
+
 end

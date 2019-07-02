@@ -1,0 +1,26 @@
+<footer id="footer" class="container" style="padding-top: 10px;text-align:center;">
+  <h2 class="common" id="login_area" name="login_area">ログイン （<%= link_to 'ユーザ登録', new_user_registration_path %>）</h2>
+  <div style="text-align: center">
+    <%= form_for(User.new, url: user_session_path, html: {name: "ff", id: "loginLoginPostForm", method: "post"}) do |f| %>
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", maxlength: "20", size: "20", style: "ime-mode: inactive;display: inline;", placeholder: "ID", id: "LoginId" %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "current-password", maxlength: "20", size: "20", placeholder: "PASS", style: "display: inline;", id: "LoginPass" %>
+
+      <div class="actions">
+        <%= f.submit "ログイン" %>
+        <% if current_user %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+  <br class="clear">
+  <p style="margin:0px;">
+    <a href="https://yugioh-list.com/pages/site_search">[!] サイト内検索</a><br>　
+    <a href="https://yugioh-list.com/pages/display">[表示切替]</a>　
+    ■ スマホ　<a href="https://yugioh-list.com/pages/pc">□ PC</a>
+  </p>
+</footer>

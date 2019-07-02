@@ -220,11 +220,7 @@ class CardsSearchForm < FormObject
     # キーワード
     if !form[:deck_keyword].blank?
       result = result.where(
-          'name LIKE ? or
-            name_kana LIKE ? or
-            text LIKE ?',
-          "%#{form[:deck_keyword]}%",
-          "%#{form[:deck_keyword]}%",
+          'name LIKE ?',
           "%#{form[:deck_keyword]}%")
     end
 

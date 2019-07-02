@@ -12,74 +12,7 @@
 <div id="page-wrapper">
 
   <!-- Nav -->
-  <nav id="nav">
-    <ul style="min-width: 960px;">
-      <li>
-        <a href="https://yugioh-list.com/">Home</a>
-        <ul>
-          <li><a href="https://yugioh-list.com/update_infos/index">更新履歴</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="https://yugioh-list.com/c_lists">カードリスト▼</a>
-        <ul>
-          <li><a href="https://yugioh-list.com/c_lists">遊戯王カードリスト</a></li>
-          <li><a href="https://yugioh-list.com/c_lists/kinsi_seigen_card">禁止・制限カード</a></li>
-          <li><a href="https://yugioh-list.com/searches/ctgry_list">遊戯王カテゴリ一覧</a></li>
-          <li><a href="https://yugioh-list.com/r_lists">コンプリートレビュー</a></li>
-        </ul>
-      </li>
-      <li><a href="https://yugioh-list.com/searches">検索</a></li>
-      <li><a href="decks">デッキ▼</a>
-        <ul>
-          <li><a href="decks">遊戯王デッキレシピ</a></li>
-          <li><a href="https://yugioh-list.com/decks/index/s:1/theme_ctgry:/deck_nm:/ctgry:/user_id:">マイデッキ</a></li>
-          <li><a href="https://yugioh-list.com/decks/index/s:1/theme_ctgry:/ctgry:/usecard:/keyword:/bookmark[0]:1">お気に入りデッキ</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="decks#">クリエイト▼</a>
-        <ul>
-          <li><a href="https://yugioh-list.com/decks/regist" >遊戯王デッキメーカー</a></li>
-          <li><a href="https://yugioh-list.com/c_makes" >遊戯王オリカメーカー</a></li>
-          <li><a href="https://yugioh-list.com/c_makes/orika_list">遊戯王オリカ掲示板</a></li>
-          <li><a href="https://yugioh-list.com/c_makes/ctgry_list">遊戯王オリカカテゴリ一覧</a></li>
-          <li><a href="https://yugioh-list.com/novels/add" >遊戯王SS投稿</a></li>
-          <li><a href="https://yugioh-list.com/novels">遊戯王SS一覧</a></li>
-          <li><a href="https://yugioh-list.com/senryus" >遊戯王川柳メーカー</a></li>
-          <li><a href="https://yugioh-list.com/senryus/senryu_list" >遊戯王川柳一覧</a></li>
-          <li><a href="https://yugioh-list.com/boketes">遊戯王ボケメーカー</a></li>
-          <li><a href="https://yugioh-list.com/boketes/boke_list" >遊戯王ボケ一覧</a></li>
-          <li><a href="https://yugioh-list.com/rankings" >遊戯王ランキング</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="decks#">交流▼</a>
-        <ul>
-          <li><a href="https://yugioh-list.com/comments" >一言掲示板</a></li>
-          <li><a href="https://yugioh-list.com/k/report/">管理人連絡掲示板</a></li>
-          <li><a href="https://yugioh-list.com/k/yugioh/">遊戯王雑談掲示板</a></li>
-          <li><a href="https://yugioh-list.com/k/zatudan/" >雑談掲示板</a></li>
-          <li><a href="https://yugioh-list.com/events">非公認大会</a></li>
-          <li><a href="https://yugioh-list.com/trades">ユーザーズカードショップ</a></li>
-          <li><a href="https://yugioh-list.com/trades/detail/">ショップ(掲示板)を確認</a></li>
-          <li><a href="https://yugioh-list.com/trades/edit">ショップ(掲示板)を編集</a></li>
-          <li><a href="https://yugioh-list.com/trades/edit_card">販売カード管理</a></li>
-          <li><a href="https://4coma.com/manga/list?keyword=%E9%81%8A%E6%88%AF%E7%8E%8B" target="_blank">遊戯王４コマ漫画(別窓)</a></li>
-          <li><a href="https://yugioh-list.com/links">サイト情報</a></li>
-          <li><a href="mailto:master@yugioh-list.com?subject=【お問い合わせ】遊戯王カードリスト・評価・オリカ&amp;body=https://yugioh-list.com/decks">お問い合わせ</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="decks#">マイメニュー ▼</a>
-        <ul>
-          <li><a href="decks#login_area" >↓ ログイン</a></li>
-          <li><a href="https://yugioh-list.com/u_regists/index/%E3%83%A6%E3%83%BC%E3%82%B6%E7%99%BB%E9%8C%B2">ユーザ登録</a></li>
-          <li><a href="https://yugioh-list.com/pages/pc">固定幅表示（PC向）に変更</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+  <%= render template: 'layouts/header' %>
 
   <div id="main-wrapper">
     <div id="main" class="container">
@@ -90,295 +23,288 @@
         <div class="12u 12u(mobile) important(mobile)">
           <div class="content content-right">
             <div class="pankuzu_div">
-              <div class="pankuzu_in"><a href="https://yugioh-list.com/">HOME</a>　＞　<a href="decks">デッキレシピ一覧</a>
+              <div class="pankuzu_in"><%= link_to 'HOME', root_path %>　＞　<%= link_to 'デッキレシピ一覧', decks_path %></a>
               </div>
             </div>
 
             <br style="clear:both;"/>
-            <h1 class="common">遊戯王 <a href="decks">デッキレシピ一覧</a></h1>
+            <h1 class="common">遊戯王 デッキレシピ一覧</h1>
 
-            <p>
-              <a href="https://yugioh-list.com/decks/regist">遊戯王デッキメーカー</a>で作成されたレシピを一覧です。解説文章量がある程度長いとオススメという意味を込めて<font color="blue">「GOOD」</font>が表示されます。<br /><br />
-              ログインユーザは自分の作成したデッキは詳細画面より編集できます。<br /><br />
-              検索の「使用カード」はカード名の一部を入力すると候補カードが表示される(多少時間がかかります)ので１つ選択してください。
-            </p>
             <div style="background-color:lightsteelblue;padding:5px;margin:5px 0px 5px 0px;">
-              <form action="decks" name="f" id="DeckIndexForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/></div><input type="hidden" name="data[Deck][s]" value="1" id="DeckS"/><select name="data[Deck][theme_ctgry]" style="width: 200px;max-width: 100%;display:inline-block;" id="DeckThemeCtgry">
-                <option value="">-- カテゴリ --</option>
-                <optgroup label="属性">
-                  <option value="attribute_id:1">闇</option>
-                  <option value="attribute_id:2">光</option>
-                  <option value="attribute_id:3">地</option>
-                  <option value="attribute_id:4">水</option>
-                  <option value="attribute_id:5">炎</option>
-                  <option value="attribute_id:6">風</option>
-                  <option value="attribute_id:7">神</option>
-                </optgroup>
-                <optgroup label="種族">
-                  <option value="type_id:01">悪魔族</option>
-                  <option value="type_id:02">アンデット族</option>
-                  <option value="type_id:03">雷族</option>
-                  <option value="type_id:04">海竜族</option>
-                  <option value="type_id:05">岩石族</option>
-                  <option value="type_id:06">機械族</option>
-                  <option value="type_id:07">恐竜族</option>
-                  <option value="type_id:08">獣族</option>
-                  <option value="type_id:09">幻神獣族</option>
-                  <option value="type_id:10">昆虫族</option>
-                  <option value="type_id:11">サイキック族</option>
-                  <option value="type_id:12">魚族</option>
-                  <option value="type_id:13">植物族</option>
-                  <option value="type_id:14">獣戦士族</option>
-                  <option value="type_id:15">戦士族</option>
-                  <option value="type_id:16">天使族</option>
-                  <option value="type_id:17">鳥獣族</option>
-                  <option value="type_id:18">ドラゴン族</option>
-                  <option value="type_id:19">爬虫類族</option>
-                  <option value="type_id:20">炎族</option>
-                  <option value="type_id:21">魔法使い族</option>
-                  <option value="type_id:22">水族</option>
-                  <option value="type_id:23">創造神族</option>
-                  <option value="type_id:24">幻竜族</option>
-                  <option value="type_id:25">サイバース族</option>
-                </optgroup>
-                <optgroup label="テーマ">
-                  <option value="8">A・O・J（ｱｰﾘｵﾌﾞｼﾞｬｽﾃｨｽ）</option>
-                  <option value="1">BF（ブラックフェザー）</option>
-                  <option value="127">BK（ﾊﾞｰﾆﾝｸﾞﾅｯｸﾗｰ）</option>
-                  <option value="44">C（コクーン）</option>
-                  <option value="27">C（チェーン）</option>
-                  <option value="50">D-HERO（ﾃﾞｨｰﾋｰﾛｰ）</option>
-                  <option value="248">DD（ディーディー）</option>
-                  <option value="26">D（ディフォーマー）</option>
-                  <option value="142">E-HERO（ｲｰﾋﾞﾙﾋｰﾛｰ）</option>
-                  <option value="240">EM(ｴﾝﾀﾒｲｲﾄ)・Em(ｴﾝﾀﾒｲｼﾞ) </option>
-                  <option value="34">E・HERO（ｴﾚﾒﾝﾀﾙﾋｰﾛｰ）</option>
-                  <option value="162">HERO（ヒーロー）</option>
-                  <option value="83">H・C、H-C（ﾋﾛｲｯｸ）</option>
-                  <option value="163">LV（レベル・レベルアップモンスター）</option>
-                  <option value="69">NO.（ﾅﾝﾊﾞｰｽﾞ）</option>
-                  <option value="53">N（ネオスペーシアン）</option>
-                  <option value="165">RUM・CNo・CX</option>
-                  <option value="146">SD（ｽｰﾊﾟｰﾃﾞｨﾌｪﾝｽ）</option>
-                  <option value="46">Sin（シン）</option>
-                  <option value="269">SR(スピードロイド )</option>
-                  <option value="167">TG（テックジーナス）</option>
-                  <option value="10">X-セイバー</option>
-                  <option value="168">ZW（ゼアル・ウェポン）</option>
-                  <option value="235">★エクシーズモンスター★</option>
-                  <option value="236">★シンクロモンスター★</option>
-                  <option value="237">★ペンデュラムモンスター★</option>
-                  <option value="291">★リンクモンスター★</option>
-                  <option value="239">★儀式モンスター★</option>
-                  <option value="238">★融合モンスター★</option>
-                  <option value="75">おジャマ</option>
-                  <option value="265">アクアアクトレス・アクアリウム</option>
-                  <option value="29">アマゾネス</option>
-                  <option value="272">アモルファージ</option>
-                  <option value="31">アルカナフォース</option>
-                  <option value="263">アロマ</option>
-                  <option value="32">アンティーク・ギア</option>
-                  <option value="143">アンブラル</option>
-                  <option value="220">アーティファクト</option>
-                  <option value="262">イグナイト</option>
-                  <option value="23">インフェルニティ</option>
-                  <option value="254">インフェルノイド</option>
-                  <option value="20">インヴェルズ</option>
-                  <option value="326">ウィッチクラフト</option>
-                  <option value="224">エクシーズ</option>
-                  <option value="33">エレキ</option>
-                  <option value="313">エレメントセイバー</option>
-                  <option value="328">エンディミオン</option>
-                  <option value="74">エヴォル</option>
-                  <option value="28">エーリアン</option>
-                  <option value="267">オッドアイズ</option>
-                  <option value="298">オルターガイスト</option>
-                  <option value="268">カオス・ソルジャー</option>
-                  <option value="38">カラクリ</option>
-                  <option value="36">ガエル</option>
-                  <option value="77">ガガガ</option>
-                  <option value="37">ガジェット</option>
-                  <option value="17">ガスタ</option>
-                  <option value="172">ガーディアン</option>
-                  <option value="82">ギアギア</option>
-                  <option value="122">ギミック・パペット</option>
-                  <option value="92">ギャラクシー</option>
-                  <option value="244">クリフォート</option>
-                  <option value="299">クローラー</option>
-                  <option value="43">コアキメイル</option>
-                  <option value="312">コード・トーカー</option>
-                  <option value="174">ゴゴゴ</option>
-                  <option value="255">ゴブリン</option>
-                  <option value="154">ゴルゴニック</option>
-                  <option value="151">ゴーストリック</option>
-                  <option value="157">サイバー</option>
-                  <option value="303">サブテラー</option>
-                  <option value="331">シムルグ</option>
-                  <option value="222">シャドール</option>
-                  <option value="73">シンクロン</option>
-                  <option value="14">ジェネクス</option>
-                  <option value="19">ジェムナイト</option>
-                  <option value="71">ジャンク</option>
-                  <option value="5">ジュラック</option>
-                  <option value="47">スクラップ</option>
-                  <option value="179">ズババ</option>
-                  <option value="76">セイクリッド</option>
-                  <option value="181">セイヴァー</option>
-                  <option value="261">セフィラ</option>
-                  <option value="68">ゼンマイ</option>
-                  <option value="307">ダイナミスト</option>
-                  <option value="183">ダストン</option>
-                  <option value="123">デュアル</option>
-                  <option value="49">デーモン</option>
-                  <option value="184">トゥーン</option>
-                  <option value="293">トリックスター</option>
-                  <option value="121">ドドド</option>
-                  <option value="11">ドラグニティ</option>
-                  <option value="7">ナチュル</option>
-                  <option value="52">ネオス</option>
-                  <option value="319">ネフティス</option>
-                  <option value="22">ハーピィ</option>
-                  <option value="186">バウンサー</option>
-                  <option value="310">バスター・ブレイダー・破壊剣(はかいけん)</option>
-                  <option value="285">バージェストマ</option>
-                  <option value="245">ファーニマル・デストーイ・エッジインプ</option>
-                  <option value="188">フィッシュボーグ</option>
-                  <option value="156">フォトン</option>
-                  <option value="21">フォーチュンレディ</option>
-                  <option value="6">フレムベル</option>
-                  <option value="260">ブンボーグ</option>
-                  <option value="320">プランキッズ</option>
-                  <option value="191">ペンギン</option>
-                  <option value="147">ホール・落とし穴・蟲惑魔(こわくま)</option>
-                  <option value="56">マシンナーズ</option>
-                  <option value="85">マドルチェ</option>
-                  <option value="152">マリスボラス</option>
-                  <option value="271">ムーンライト</option>
-                  <option value="300">メタファイズ</option>
-                  <option value="282">メタルフォーゼ</option>
-                  <option value="120">ライトレイ</option>
-                  <option value="2">ライトロード</option>
-                  <option value="97">ランク3エクシーズ</option>
-                  <option value="96">ランク4エクシーズ</option>
-                  <option value="95">ランク5エクシーズ</option>
-                  <option value="16">ラヴァル</option>
-                  <option value="193">リアクター</option>
-                  <option value="194">リゾネーター</option>
-                  <option value="18">リチュア</option>
-                  <option value="195">レアル・ジェネクス</option>
-                  <option value="196">レッドアイズ</option>
-                  <option value="57">レプティレス</option>
-                  <option value="58">ロイド</option>
-                  <option value="12">ワーム</option>
-                  <option value="15">ヴァイロン</option>
-                  <option value="297">ヴァレット</option>
-                  <option value="153">ヴァンパイア</option>
-                  <option value="80">ヴェノム</option>
-                  <option value="35">ヴェルズ</option>
-                  <option value="305">ヴェンデット</option>
-                  <option value="54">ヴォルカニック</option>
-                  <option value="308">不知火(しらぬい)</option>
-                  <option value="48">代行者（だいこうしゃ）</option>
-                  <option value="84">先史遺産(ｵｰﾊﾟｰﾂ)</option>
-                  <option value="212">光天使(ホーリー・ライトニング)</option>
-                  <option value="24">六武衆（ろくぶしゅう）</option>
-                  <option value="294">剛鬼(ごうき)</option>
-                  <option value="41">剣闘獣（ｸﾞﾗﾃﾞｨｱﾙﾋﾞｰｽﾄ）</option>
-                  <option value="279">化合獣(ｶｺﾞｳｼﾞｭｳ)</option>
-                  <option value="286">十二獣</option>
-                  <option value="266">占術姫(せんじゅつき)</option>
-                  <option value="289">召喚獣(しょうかんじゅう)</option>
-                  <option value="327">呪眼(じゅがん)</option>
-                  <option value="45">地縛神（じばくしん）</option>
-                  <option value="280">堕天使(だてんし)</option>
-                  <option value="25">墓守（はかもり）</option>
-                  <option value="284">壊獣(かいじゅう)</option>
-                  <option value="330">天威(てんい)</option>
-                  <option value="301">天気(てんき)</option>
-                  <option value="247">契約書(けいやくしょ)</option>
-                  <option value="249">妖仙獣(ようせんじゅう)</option>
-                  <option value="322">守護竜 (しゅごりゅう)</option>
-                  <option value="55">宝玉獣（ほうぎょくじゅう）</option>
-                  <option value="317">宣告者(デクレアラー)</option>
-                  <option value="217">封印(ふういん)されし</option>
-                  <option value="39">巨大戦艦（きょだいせんかん）</option>
-                  <option value="324">帝（みかど）</option>
-                  <option value="246">幻奏(げんそう)</option>
-                  <option value="273">幻影騎士団(ﾌｧﾝﾄﾑﾅｲﾂ)</option>
-                  <option value="290">幻煌龍(げんおうりゅう)</option>
-                  <option value="210">幻獣(げんじゅう)</option>
-                  <option value="126">幻獣機(げんじゅうき)</option>
-                  <option value="211">幻蝶(げんちょう)の刺客(しきゃく)</option>
-                  <option value="250">影霊衣(ネクロス)</option>
-                  <option value="275">彼岸(ひがん)</option>
-                  <option value="129">征竜(せいりゅう)</option>
-                  <option value="79">忍者・忍法(ﾆﾝｼﾞｬ・ﾆﾝﾎﾟｳ)</option>
-                  <option value="288">捕食植物(ﾌﾟﾚﾃﾞﾀｰﾌﾟﾗﾝﾂ)</option>
-                  <option value="318">方界(ほうかい)</option>
-                  <option value="277">旧神・古神・外神</option>
-                  <option value="221">星因士・星輝士（テラナイト）</option>
-                  <option value="295">星杯(せいはい)・星遺物(せいいぶつ)</option>
-                  <option value="296">時械神(ジカイシン)</option>
-                  <option value="30">暗黒界（あんこくかい）</option>
-                  <option value="155">森羅（しんら）</option>
-                  <option value="4">極星（きょくせい）</option>
-                  <option value="204">機皇(きこう)</option>
-                  <option value="145">武神(ブジン)</option>
-                  <option value="278">水晶機巧（ｸﾘｽﾄﾛﾝ）</option>
-                  <option value="88">水精鱗(ﾏｰﾒｲﾙ)</option>
-                  <option value="13">氷結界（ひょうけっかい）</option>
-                  <option value="329">海晶乙女(マリンセス)</option>
-                  <option value="202">海皇(かいおう)</option>
-                  <option value="100">炎星(ｴﾝｾｲ)</option>
-                  <option value="110">炎王(えんおう)</option>
-                  <option value="325">無限起動</option>
-                  <option value="78">甲虫装機(ｲﾝｾﾞｸﾀｰ)</option>
-                  <option value="323">真竜(しんりゅう)</option>
-                  <option value="314">空牙団</option>
-                  <option value="223">竜星</option>
-                  <option value="309">竜魔王(りゅうまおう)</option>
-                  <option value="89">紋章獣(ﾓﾝｼｮｳｼﾞｭｳ)</option>
-                  <option value="90">素早い(すばやい)</option>
-                  <option value="87">聖刻(ｾｲｺｸ)</option>
-                  <option value="149">聖剣・聖騎士(ｾｲｹﾝ・ｾｲｷｼ)</option>
-                  <option value="287">花札衛（ｶｰﾃﾞｨｱﾝ）</option>
-                  <option value="243">超重武者(ちょうじゅうむしゃ)</option>
-                  <option value="274">超量(ちょうりょう)</option>
-                  <option value="315">閃刀姫(せんとうき)・閃刀(せんとう)</option>
-                  <option value="101">陽炎獣(ﾍｲｽﾞﾋﾞｰｽﾄ)</option>
-                  <option value="40">雲魔物（ｸﾗｳﾃﾞｨｱﾝ）</option>
-                  <option value="51">電池メン</option>
-                  <option value="253">霊使い・憑依装着</option>
-                  <option value="251">霊獣(れいじゅう)</option>
-                  <option value="91">霊神(ﾚｲｼﾝ)</option>
-                  <option value="3">霞の谷（ミストバレー）</option>
-                  <option value="197">青眼(ブルーアイズ）</option>
-                  <option value="81">魔人(ﾏｼﾞﾝ)</option>
-                  <option value="321">魔妖(まやかし)</option>
-                  <option value="86">魔導書(まどうしょ)</option>
-                  <option value="311">魔導獣(マジックビースト)</option>
-                  <option value="302">魔弾(まだん)</option>
-                  <option value="281">魔界劇団・魔界台本</option>
-                  <option value="316">魔神儀(デビリチャル)</option>
-                  <option value="264">魔装戦士・イーサルウェポン</option>
-                  <option value="9">魔轟神（まごうしん）</option>
-                  <option value="42">黒蠍（くろさそり）</option>
-                  <option value="158">／(スラッシュ)バスター</option>
-                  <option value="306">Ｆ.Ａ.(ﾌｫｰﾐｭﾗｰｱｽﾘｰﾄ)</option>
-                  <option value="283">Ｋｏｚｍｏ</option>
-                  <option value="270">ＰＳＹ(サイ)フレーム </option>
-                  <option value="256">ＲＲ（ﾚｲﾄﾞ・ﾗﾌﾟﾀｰｽﾞ）</option>
-                  <option value="304">ＳＰＹＲＡＬ(ｽﾊﾟｲﾗﾙ)</option>
-                  <option value="276">Ｕ.Ａ.(ｳﾙﾄﾗｱｽﾘｰﾄ)</option>
-                </optgroup>
-              </select><select name="data[Deck][ctgry]" style="width: 200px;max-width: 100%;display:inline-block;" id="DeckCtgry">
-                <option value="">-- 勝ち方 --</option>
-                <option value="1">ビートダウン</option>
-                <option value="2">メタ・コントロール</option>
-                <option value="3">ロック・バーン</option>
-                <option value="4">特殊勝利</option>
-                <option value="5">ファン・テーマ</option>
-              </select><br>
+              <form action="decks" name="f" id="DeckIndexForm" method="post" accept-charset="utf-8">
+                <div style="display:none;">
+                  <input type="hidden" name="_method" value="POST"/>
+                </div>
+                <input type="hidden" name="data[Deck][s]" value="1" id="DeckS"/>
+                <select name="data[Deck][theme_ctgry]" style="width: 200px;max-width: 100%;display:inline-block;" id="DeckThemeCtgry">
+                  <option value="">-- カテゴリ --</option>
+                  <optgroup label="属性">
+                    <option value="attribute_id:1">闇</option>
+                    <option value="attribute_id:2">光</option>
+                    <option value="attribute_id:3">地</option>
+                    <option value="attribute_id:4">水</option>
+                    <option value="attribute_id:5">炎</option>
+                    <option value="attribute_id:6">風</option>
+                    <option value="attribute_id:7">神</option>
+                  </optgroup>
+                  <optgroup label="種族">
+                    <option value="type_id:01">悪魔族</option>
+                    <option value="type_id:02">アンデット族</option>
+                    <option value="type_id:03">雷族</option>
+                    <option value="type_id:04">海竜族</option>
+                    <option value="type_id:05">岩石族</option>
+                    <option value="type_id:06">機械族</option>
+                    <option value="type_id:07">恐竜族</option>
+                    <option value="type_id:08">獣族</option>
+                    <option value="type_id:09">幻神獣族</option>
+                    <option value="type_id:10">昆虫族</option>
+                    <option value="type_id:11">サイキック族</option>
+                    <option value="type_id:12">魚族</option>
+                    <option value="type_id:13">植物族</option>
+                    <option value="type_id:14">獣戦士族</option>
+                    <option value="type_id:15">戦士族</option>
+                    <option value="type_id:16">天使族</option>
+                    <option value="type_id:17">鳥獣族</option>
+                    <option value="type_id:18">ドラゴン族</option>
+                    <option value="type_id:19">爬虫類族</option>
+                    <option value="type_id:20">炎族</option>
+                    <option value="type_id:21">魔法使い族</option>
+                    <option value="type_id:22">水族</option>
+                    <option value="type_id:23">創造神族</option>
+                    <option value="type_id:24">幻竜族</option>
+                    <option value="type_id:25">サイバース族</option>
+                  </optgroup>
+                  <optgroup label="テーマ">
+                    <option value="8">A・O・J（ｱｰﾘｵﾌﾞｼﾞｬｽﾃｨｽ）</option>
+                    <option value="1">BF（ブラックフェザー）</option>
+                    <option value="127">BK（ﾊﾞｰﾆﾝｸﾞﾅｯｸﾗｰ）</option>
+                    <option value="44">C（コクーン）</option>
+                    <option value="27">C（チェーン）</option>
+                    <option value="50">D-HERO（ﾃﾞｨｰﾋｰﾛｰ）</option>
+                    <option value="248">DD（ディーディー）</option>
+                    <option value="26">D（ディフォーマー）</option>
+                    <option value="142">E-HERO（ｲｰﾋﾞﾙﾋｰﾛｰ）</option>
+                    <option value="240">EM(ｴﾝﾀﾒｲｲﾄ)・Em(ｴﾝﾀﾒｲｼﾞ) </option>
+                    <option value="34">E・HERO（ｴﾚﾒﾝﾀﾙﾋｰﾛｰ）</option>
+                    <option value="162">HERO（ヒーロー）</option>
+                    <option value="83">H・C、H-C（ﾋﾛｲｯｸ）</option>
+                    <option value="163">LV（レベル・レベルアップモンスター）</option>
+                    <option value="69">NO.（ﾅﾝﾊﾞｰｽﾞ）</option>
+                    <option value="53">N（ネオスペーシアン）</option>
+                    <option value="165">RUM・CNo・CX</option>
+                    <option value="146">SD（ｽｰﾊﾟｰﾃﾞｨﾌｪﾝｽ）</option>
+                    <option value="46">Sin（シン）</option>
+                    <option value="269">SR(スピードロイド )</option>
+                    <option value="167">TG（テックジーナス）</option>
+                    <option value="10">X-セイバー</option>
+                    <option value="168">ZW（ゼアル・ウェポン）</option>
+                    <option value="235">★エクシーズモンスター★</option>
+                    <option value="236">★シンクロモンスター★</option>
+                    <option value="237">★ペンデュラムモンスター★</option>
+                    <option value="291">★リンクモンスター★</option>
+                    <option value="239">★儀式モンスター★</option>
+                    <option value="238">★融合モンスター★</option>
+                    <option value="75">おジャマ</option>
+                    <option value="265">アクアアクトレス・アクアリウム</option>
+                    <option value="29">アマゾネス</option>
+                    <option value="272">アモルファージ</option>
+                    <option value="31">アルカナフォース</option>
+                    <option value="263">アロマ</option>
+                    <option value="32">アンティーク・ギア</option>
+                    <option value="143">アンブラル</option>
+                    <option value="220">アーティファクト</option>
+                    <option value="262">イグナイト</option>
+                    <option value="23">インフェルニティ</option>
+                    <option value="254">インフェルノイド</option>
+                    <option value="20">インヴェルズ</option>
+                    <option value="326">ウィッチクラフト</option>
+                    <option value="224">エクシーズ</option>
+                    <option value="33">エレキ</option>
+                    <option value="313">エレメントセイバー</option>
+                    <option value="328">エンディミオン</option>
+                    <option value="74">エヴォル</option>
+                    <option value="28">エーリアン</option>
+                    <option value="267">オッドアイズ</option>
+                    <option value="298">オルターガイスト</option>
+                    <option value="268">カオス・ソルジャー</option>
+                    <option value="38">カラクリ</option>
+                    <option value="36">ガエル</option>
+                    <option value="77">ガガガ</option>
+                    <option value="37">ガジェット</option>
+                    <option value="17">ガスタ</option>
+                    <option value="172">ガーディアン</option>
+                    <option value="82">ギアギア</option>
+                    <option value="122">ギミック・パペット</option>
+                    <option value="92">ギャラクシー</option>
+                    <option value="244">クリフォート</option>
+                    <option value="299">クローラー</option>
+                    <option value="43">コアキメイル</option>
+                    <option value="312">コード・トーカー</option>
+                    <option value="174">ゴゴゴ</option>
+                    <option value="255">ゴブリン</option>
+                    <option value="154">ゴルゴニック</option>
+                    <option value="151">ゴーストリック</option>
+                    <option value="157">サイバー</option>
+                    <option value="303">サブテラー</option>
+                    <option value="331">シムルグ</option>
+                    <option value="222">シャドール</option>
+                    <option value="73">シンクロン</option>
+                    <option value="14">ジェネクス</option>
+                    <option value="19">ジェムナイト</option>
+                    <option value="71">ジャンク</option>
+                    <option value="5">ジュラック</option>
+                    <option value="47">スクラップ</option>
+                    <option value="179">ズババ</option>
+                    <option value="76">セイクリッド</option>
+                    <option value="181">セイヴァー</option>
+                    <option value="261">セフィラ</option>
+                    <option value="68">ゼンマイ</option>
+                    <option value="307">ダイナミスト</option>
+                    <option value="183">ダストン</option>
+                    <option value="123">デュアル</option>
+                    <option value="49">デーモン</option>
+                    <option value="184">トゥーン</option>
+                    <option value="293">トリックスター</option>
+                    <option value="121">ドドド</option>
+                    <option value="11">ドラグニティ</option>
+                    <option value="7">ナチュル</option>
+                    <option value="52">ネオス</option>
+                    <option value="319">ネフティス</option>
+                    <option value="22">ハーピィ</option>
+                    <option value="186">バウンサー</option>
+                    <option value="310">バスター・ブレイダー・破壊剣(はかいけん)</option>
+                    <option value="285">バージェストマ</option>
+                    <option value="245">ファーニマル・デストーイ・エッジインプ</option>
+                    <option value="188">フィッシュボーグ</option>
+                    <option value="156">フォトン</option>
+                    <option value="21">フォーチュンレディ</option>
+                    <option value="6">フレムベル</option>
+                    <option value="260">ブンボーグ</option>
+                    <option value="320">プランキッズ</option>
+                    <option value="191">ペンギン</option>
+                    <option value="147">ホール・落とし穴・蟲惑魔(こわくま)</option>
+                    <option value="56">マシンナーズ</option>
+                    <option value="85">マドルチェ</option>
+                    <option value="152">マリスボラス</option>
+                    <option value="271">ムーンライト</option>
+                    <option value="300">メタファイズ</option>
+                    <option value="282">メタルフォーゼ</option>
+                    <option value="120">ライトレイ</option>
+                    <option value="2">ライトロード</option>
+                    <option value="97">ランク3エクシーズ</option>
+                    <option value="96">ランク4エクシーズ</option>
+                    <option value="95">ランク5エクシーズ</option>
+                    <option value="16">ラヴァル</option>
+                    <option value="193">リアクター</option>
+                    <option value="194">リゾネーター</option>
+                    <option value="18">リチュア</option>
+                    <option value="195">レアル・ジェネクス</option>
+                    <option value="196">レッドアイズ</option>
+                    <option value="57">レプティレス</option>
+                    <option value="58">ロイド</option>
+                    <option value="12">ワーム</option>
+                    <option value="15">ヴァイロン</option>
+                    <option value="297">ヴァレット</option>
+                    <option value="153">ヴァンパイア</option>
+                    <option value="80">ヴェノム</option>
+                    <option value="35">ヴェルズ</option>
+                    <option value="305">ヴェンデット</option>
+                    <option value="54">ヴォルカニック</option>
+                    <option value="308">不知火(しらぬい)</option>
+                    <option value="48">代行者（だいこうしゃ）</option>
+                    <option value="84">先史遺産(ｵｰﾊﾟｰﾂ)</option>
+                    <option value="212">光天使(ホーリー・ライトニング)</option>
+                    <option value="24">六武衆（ろくぶしゅう）</option>
+                    <option value="294">剛鬼(ごうき)</option>
+                    <option value="41">剣闘獣（ｸﾞﾗﾃﾞｨｱﾙﾋﾞｰｽﾄ）</option>
+                    <option value="279">化合獣(ｶｺﾞｳｼﾞｭｳ)</option>
+                    <option value="286">十二獣</option>
+                    <option value="266">占術姫(せんじゅつき)</option>
+                    <option value="289">召喚獣(しょうかんじゅう)</option>
+                    <option value="327">呪眼(じゅがん)</option>
+                    <option value="45">地縛神（じばくしん）</option>
+                    <option value="280">堕天使(だてんし)</option>
+                    <option value="25">墓守（はかもり）</option>
+                    <option value="284">壊獣(かいじゅう)</option>
+                    <option value="330">天威(てんい)</option>
+                    <option value="301">天気(てんき)</option>
+                    <option value="247">契約書(けいやくしょ)</option>
+                    <option value="249">妖仙獣(ようせんじゅう)</option>
+                    <option value="322">守護竜 (しゅごりゅう)</option>
+                    <option value="55">宝玉獣（ほうぎょくじゅう）</option>
+                    <option value="317">宣告者(デクレアラー)</option>
+                    <option value="217">封印(ふういん)されし</option>
+                    <option value="39">巨大戦艦（きょだいせんかん）</option>
+                    <option value="324">帝（みかど）</option>
+                    <option value="246">幻奏(げんそう)</option>
+                    <option value="273">幻影騎士団(ﾌｧﾝﾄﾑﾅｲﾂ)</option>
+                    <option value="290">幻煌龍(げんおうりゅう)</option>
+                    <option value="210">幻獣(げんじゅう)</option>
+                    <option value="126">幻獣機(げんじゅうき)</option>
+                    <option value="211">幻蝶(げんちょう)の刺客(しきゃく)</option>
+                    <option value="250">影霊衣(ネクロス)</option>
+                    <option value="275">彼岸(ひがん)</option>
+                    <option value="129">征竜(せいりゅう)</option>
+                    <option value="79">忍者・忍法(ﾆﾝｼﾞｬ・ﾆﾝﾎﾟｳ)</option>
+                    <option value="288">捕食植物(ﾌﾟﾚﾃﾞﾀｰﾌﾟﾗﾝﾂ)</option>
+                    <option value="318">方界(ほうかい)</option>
+                    <option value="277">旧神・古神・外神</option>
+                    <option value="221">星因士・星輝士（テラナイト）</option>
+                    <option value="295">星杯(せいはい)・星遺物(せいいぶつ)</option>
+                    <option value="296">時械神(ジカイシン)</option>
+                    <option value="30">暗黒界（あんこくかい）</option>
+                    <option value="155">森羅（しんら）</option>
+                    <option value="4">極星（きょくせい）</option>
+                    <option value="204">機皇(きこう)</option>
+                    <option value="145">武神(ブジン)</option>
+                    <option value="278">水晶機巧（ｸﾘｽﾄﾛﾝ）</option>
+                    <option value="88">水精鱗(ﾏｰﾒｲﾙ)</option>
+                    <option value="13">氷結界（ひょうけっかい）</option>
+                    <option value="329">海晶乙女(マリンセス)</option>
+                    <option value="202">海皇(かいおう)</option>
+                    <option value="100">炎星(ｴﾝｾｲ)</option>
+                    <option value="110">炎王(えんおう)</option>
+                    <option value="325">無限起動</option>
+                    <option value="78">甲虫装機(ｲﾝｾﾞｸﾀｰ)</option>
+                    <option value="323">真竜(しんりゅう)</option>
+                    <option value="314">空牙団</option>
+                    <option value="223">竜星</option>
+                    <option value="309">竜魔王(りゅうまおう)</option>
+                    <option value="89">紋章獣(ﾓﾝｼｮｳｼﾞｭｳ)</option>
+                    <option value="90">素早い(すばやい)</option>
+                    <option value="87">聖刻(ｾｲｺｸ)</option>
+                    <option value="149">聖剣・聖騎士(ｾｲｹﾝ・ｾｲｷｼ)</option>
+                    <option value="287">花札衛（ｶｰﾃﾞｨｱﾝ）</option>
+                    <option value="243">超重武者(ちょうじゅうむしゃ)</option>
+                    <option value="274">超量(ちょうりょう)</option>
+                    <option value="315">閃刀姫(せんとうき)・閃刀(せんとう)</option>
+                    <option value="101">陽炎獣(ﾍｲｽﾞﾋﾞｰｽﾄ)</option>
+                    <option value="40">雲魔物（ｸﾗｳﾃﾞｨｱﾝ）</option>
+                    <option value="51">電池メン</option>
+                    <option value="253">霊使い・憑依装着</option>
+                    <option value="251">霊獣(れいじゅう)</option>
+                    <option value="91">霊神(ﾚｲｼﾝ)</option>
+                    <option value="3">霞の谷（ミストバレー）</option>
+                    <option value="197">青眼(ブルーアイズ）</option>
+                    <option value="81">魔人(ﾏｼﾞﾝ)</option>
+                    <option value="321">魔妖(まやかし)</option>
+                    <option value="86">魔導書(まどうしょ)</option>
+                    <option value="311">魔導獣(マジックビースト)</option>
+                    <option value="302">魔弾(まだん)</option>
+                    <option value="281">魔界劇団・魔界台本</option>
+                    <option value="316">魔神儀(デビリチャル)</option>
+                    <option value="264">魔装戦士・イーサルウェポン</option>
+                    <option value="9">魔轟神（まごうしん）</option>
+                    <option value="42">黒蠍（くろさそり）</option>
+                    <option value="158">／(スラッシュ)バスター</option>
+                    <option value="306">Ｆ.Ａ.(ﾌｫｰﾐｭﾗｰｱｽﾘｰﾄ)</option>
+                    <option value="283">Ｋｏｚｍｏ</option>
+                    <option value="270">ＰＳＹ(サイ)フレーム </option>
+                    <option value="256">ＲＲ（ﾚｲﾄﾞ・ﾗﾌﾟﾀｰｽﾞ）</option>
+                    <option value="304">ＳＰＹＲＡＬ(ｽﾊﾟｲﾗﾙ)</option>
+                    <option value="276">Ｕ.Ａ.(ｳﾙﾄﾗｱｽﾘｰﾄ)</option>
+                  </optgroup>
+                </select>
                 <select name="data[Deck][taikai_kekka]" style="width: 200px;max-width: 100%;display:inline-block;" id="DeckTaikaiKekka">
                   <option value="3000">-- 大会結果 --</option>
                   <option value="1">優勝</option>
@@ -395,7 +321,10 @@
                   <option value="999">入賞無し</option>
                 </select>以上<br>
                 使用カード：<input name="data[Deck][usecard]" size="25" style="display:inline-block;" placeholder="カード名" type="text" id="DeckUsecard"/><br>
-                <input name="data[Deck][keyword]" size="25" style="display:inline-block;" placeholder="キーワード(デッキ名・カテゴリ)" type="text" id="DeckKeyword"/>　<input  style="display:inline-block;" type="submit" value="絞込み"/></form></div>
+                <input name="data[Deck][keyword]" size="25" style="display:inline-block;" placeholder="キーワード(デッキ名・カテゴリ)" type="text" id="DeckKeyword"/>　
+                <input  style="display:inline-block;" type="submit" value="絞込み"/>
+              </form>
+            </div>
             <br>
 
             <div class="scrollbox">
@@ -409,12 +338,12 @@
                   <th width="60"><a href="https://yugioh-list.com/decks/index/sort:Deck.created/direction:desc" class="normal">投稿日</a></th>
                 </tr>
 
-                <% @decks.all.each do |deck| %>
+                <% @decks.each do |deck| %>
                   <tr>
-                    <td width="230" ><a href='https://yugioh-list.com/decks/dtl/60696'><%= deck.name %></a>　<font color="red">NEW</font> </td>
-                    <td width="150"><a href="https://yugioh-list.com/decks/index/s:1/theme_ctgry:268/"><%= deck.tournament_decks.map{|m| m.tournament.title }.join(',') %></a></td>
+                    <td width="230" ><%= link_to deck.name, deck_path(deck) %>　<%= new_font deck %> </td>
+                    <td width="150"><% link_list (deck.tournament_decks.map{|m| [m.tournament.title, tournament_path(m.tournament)] }) %></a></td>
                     <td width="185"><a href="https://yugioh-list.com/decks/index/s:1/theme_ctgry:268/"><%= deck.category.name %></a></td>
-                    <td width="130" ><a href="https://yugioh-list.com/decks/index/s:1/theme_ctgry:/deck_nm:/ctgry:/user_id:40012" title="せやかて工藤！さんのデッキレシピ一覧"><%= deck.user.name %></a> </td>
+                    <td width="130" ><%= link_to deck.user.name, user_path(deck.user) %> </td>
                     <td width="50" class="rightyose"><%= deck.deck_comments.count %></td>
                     <td width="100"><%= deck.created_at.strftime('%Y/%m/%d %H:%M')  %></td>
                   </tr>
@@ -422,8 +351,10 @@
 
               </table>
             </div>
-            <div style="margin:20px 0px;">
-              <span class="current pagenumbers">1</span> <span class="pagenumbers"><a href="https://yugioh-list.com/decks/index/page:2">2</a></span> <span class="pagenumbers"><a href="https://yugioh-list.com/decks/index/page:3">3</a></span> <span class="pagenumbers"><a href="https://yugioh-list.com/decks/index/page:4">4</a></span> <span class="pagenumbers"><a href="https://yugioh-list.com/decks/index/page:5">5</a></span> <span class="pagenumbers"><a href="https://yugioh-list.com/decks/index/page:6">6</a></span> <span class="pagenumbers"><a href="https://yugioh-list.com/decks/index/page:7">7</a></span> <span class="pagenumbers"><a href="https://yugioh-list.com/decks/index/page:8">8</a></span>　<span class="next"><a href="https://yugioh-list.com/decks/index/page:2" rel="next">次へ</a></span>　<span><a href="https://yugioh-list.com/decks/index/page:1575" rel="last"> &gt;&gt;</a></span></div><style type="text/css">
+
+            <%= paginate @decks, current_pages: @decks, all_pages: @decks_all, from_to: false %>
+
+            <style type="text/css">
             .osusume {
               background-color: lavender;
             }
@@ -439,20 +370,8 @@
   <!-- /Main -->
 
   <!-- Footer -->
-  <footer id="footer" class="container" style="padding-top: 10px;text-align:center;">
-    <h2 class="common" id="login_area" name="login_area">ログイン （<a href="https://yugioh-list.com/u_regists/index/%E3%83%A6%E3%83%BC%E3%82%B6%E7%99%BB%E9%8C%B2">ユーザ登録</a>）</h2>
-    <div style="text-align: center">
-      <form action="https://yugioh-list.com/logins/login_post" name="ff" id="loginLoginPostForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>      <input name="data[Login][id]" maxlength="20" size="20" style="ime-mode: inactive;display: inline;" placeholder="ID" type="text" id="LoginId"/>      <input name="data[Login][pass]" maxlength="20" size="20" placeholder="PASS" style="display: inline;" type="password" id="LoginPass"/>      <br />
-        <div class="input select"><input type="hidden" name="data[Login][check]" value="" id="LoginCheck"/>
+  <%= render template: 'layouts/footer' %>
 
-          <div class="checkbox"><input type="checkbox" name="data[Login][check][]" value="1" id="LoginCheck1" /><label for="LoginCheck1">cokkieに記憶</label></div>
-        </div>      <input  style="max-width: 200px;" onclick="my_login();return false;" type="submit" value="ログイン"/>            </form></div>
-    <br class="clear">																		<p style="margin:0px;">
-    <a href="https://yugioh-list.com/pages/site_search">[!] サイト内検索</a><br>　
-    <a href="https://yugioh-list.com/pages/display">[表示切替]</a>　
-    ■ スマホ　<a href="https://yugioh-list.com/pages/pc">□ PC</a>
-  </p>
-  </footer>
   <!-- Scripts -->
   <script src="/assets/js/jquery.min.js"></script>
   <script src="/assets/js/jquery.dropotron.min.js"></script>

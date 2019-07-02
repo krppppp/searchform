@@ -12,74 +12,7 @@
 <div id="page-wrapper">
 
   <!-- Nav -->
-  <nav id="nav">
-    <ul style="min-width: 960px;">
-      <li>
-        <a href="https://yugioh-list.com/">Home</a>
-        <ul>
-          <li><a href="https://yugioh-list.com/update_infos/index">更新履歴</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="https://yugioh-list.com/c_lists">カードリスト▼</a>
-        <ul>
-          <li><a href="https://yugioh-list.com/c_lists">遊戯王カードリスト</a></li>
-          <li><a href="https://yugioh-list.com/c_lists/kinsi_seigen_card">禁止・制限カード</a></li>
-          <li><a href="https://yugioh-list.com/searches/ctgry_list">遊戯王カテゴリ一覧</a></li>
-          <li><a href="https://yugioh-list.com/r_lists">コンプリートレビュー</a></li>
-        </ul>
-      </li>
-      <li><a href="https://yugioh-list.com/searches">検索</a></li>
-      <li><a href="https://yugioh-list.com/decks">デッキ▼</a>
-        <ul>
-          <li><a href="https://yugioh-list.com/decks">遊戯王デッキレシピ</a></li>
-          <li><a href="https://yugioh-list.com/decks/index/s:1/theme_ctgry:/deck_nm:/ctgry:/user_id:">マイデッキ</a></li>
-          <li><a href="https://yugioh-list.com/decks/index/s:1/theme_ctgry:/ctgry:/usecard:/keyword:/bookmark[0]:1">お気に入りデッキ</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="regist#">クリエイト▼</a>
-        <ul>
-          <li><a href="regist" >遊戯王デッキメーカー</a></li>
-          <li><a href="https://yugioh-list.com/c_makes" >遊戯王オリカメーカー</a></li>
-          <li><a href="https://yugioh-list.com/c_makes/orika_list">遊戯王オリカ掲示板</a></li>
-          <li><a href="https://yugioh-list.com/c_makes/ctgry_list">遊戯王オリカカテゴリ一覧</a></li>
-          <li><a href="https://yugioh-list.com/novels/add" >遊戯王SS投稿</a></li>
-          <li><a href="https://yugioh-list.com/novels">遊戯王SS一覧</a></li>
-          <li><a href="https://yugioh-list.com/senryus" >遊戯王川柳メーカー</a></li>
-          <li><a href="https://yugioh-list.com/senryus/senryu_list" >遊戯王川柳一覧</a></li>
-          <li><a href="https://yugioh-list.com/boketes">遊戯王ボケメーカー</a></li>
-          <li><a href="https://yugioh-list.com/boketes/boke_list" >遊戯王ボケ一覧</a></li>
-          <li><a href="https://yugioh-list.com/rankings" >遊戯王ランキング</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="regist#">交流▼</a>
-        <ul>
-          <li><a href="https://yugioh-list.com/comments" >一言掲示板</a></li>
-          <li><a href="https://yugioh-list.com/k/report/">管理人連絡掲示板</a></li>
-          <li><a href="https://yugioh-list.com/k/yugioh/">遊戯王雑談掲示板</a></li>
-          <li><a href="https://yugioh-list.com/k/zatudan/" >雑談掲示板</a></li>
-          <li><a href="https://yugioh-list.com/events">非公認大会</a></li>
-          <li><a href="https://yugioh-list.com/trades">ユーザーズカードショップ</a></li>
-          <li><a href="https://yugioh-list.com/trades/detail/">ショップ(掲示板)を確認</a></li>
-          <li><a href="https://yugioh-list.com/trades/edit">ショップ(掲示板)を編集</a></li>
-          <li><a href="https://yugioh-list.com/trades/edit_card">販売カード管理</a></li>
-          <li><a href="https://4coma.com/manga/list?keyword=%E9%81%8A%E6%88%AF%E7%8E%8B" target="_blank">遊戯王４コマ漫画(別窓)</a></li>
-          <li><a href="https://yugioh-list.com/links">サイト情報</a></li>
-          <li><a href="mailto:master@yugioh-list.com?subject=【お問い合わせ】遊戯王カードリスト・評価・オリカ&amp;body=https://yugioh-list.com/decks/regist">お問い合わせ</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="regist#">マイメニュー ▼</a>
-        <ul>
-          <li><a href="regist#login_area" >↓ ログイン</a></li>
-          <li><a href="https://yugioh-list.com/u_regists/index/%E3%83%A6%E3%83%BC%E3%82%B6%E7%99%BB%E9%8C%B2">ユーザ登録</a></li>
-          <li><a href="https://yugioh-list.com/pages/pc">固定幅表示（PC向）に変更</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+  <%= render template: 'layouts/header' %>
 
   <div id="main-wrapper">
     <div id="main" class="container">
@@ -90,7 +23,7 @@
           <div class="content">
             <br>
             <div class="pankuzu_div">
-              <div class="pankuzu_in"><a href="https://yugioh-list.com/">HOME</a>　＞　デッキメーカー</div>
+              <div class="pankuzu_in"><%= link_to 'HOME', root_path %>　＞　デッキメーカー</div>
             </div>
             <h1 class="common">遊戯王デッキメーカー 新規登録</h1>
             <form action="https://yugioh-list.com/decks/regist_dtl" name="fm" method="post">
@@ -460,20 +393,8 @@
   <!-- /Main -->
 
   <!-- Footer -->
-  <footer id="footer" class="container" style="padding-top: 10px;text-align:center;">
-    <h2 class="common" id="login_area" name="login_area">ログイン （<a href="https://yugioh-list.com/u_regists/index/%E3%83%A6%E3%83%BC%E3%82%B6%E7%99%BB%E9%8C%B2">ユーザ登録</a>）</h2>
-    <div style="text-align: center">
-      <form action="https://yugioh-list.com/logins/login_post" name="ff" id="loginLoginPostForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>      <input name="data[Login][id]" maxlength="20" size="20" style="ime-mode: inactive;display: inline;" placeholder="ID" type="text" id="LoginId"/>      <input name="data[Login][pass]" maxlength="20" size="20" placeholder="PASS" style="display: inline;" type="password" id="LoginPass"/>      <br />
-        <div class="input select"><input type="hidden" name="data[Login][check]" value="" id="LoginCheck"/>
+  <%= render template: 'layouts/footer' %>
 
-          <div class="checkbox"><input type="checkbox" name="data[Login][check][]" value="1" id="LoginCheck1" /><label for="LoginCheck1">cokkieに記憶</label></div>
-        </div>      <input  style="max-width: 200px;" onclick="my_login();return false;" type="submit" value="ログイン"/>            </form></div>
-    <br class="clear">																		<p style="margin:0px;">
-    <a href="https://yugioh-list.com/pages/site_search">[!] サイト内検索</a><br>　
-    <a href="https://yugioh-list.com/pages/display">[表示切替]</a>　
-    ■ スマホ　<a href="https://yugioh-list.com/pages/pc">□ PC</a>
-  </p>
-  </footer>
   <!-- Scripts -->
   <script src="/assets/js/jquery.min.js"></script>
   <script src="/assets/js/jquery.dropotron.min.js"></script>

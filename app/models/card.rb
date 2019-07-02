@@ -34,4 +34,40 @@ class Card < ApplicationRecord
     type = 'trap' if self.trap?
     return type
   end
+
+  def num_categolized?
+    type = 'uncategolized'
+    type = 0 if self.monster?
+    type = 1 if self.magic?
+    type = 2 if self.trap?
+    type = 3 if self.extra?
+    return type
+  end
+
+  def random_categolize
+    self.extra? ? 3 : (rand(1..3) > 1 ? self.num_categolized? : 4)
+  end
+
+  def level?
+    !self.level.blank? ? true : false;
+  end
+
+  def rank?
+    !self.rank.blank? ? true : false;
+  end
+
+  def link?
+    !self.link.blank? ? true : false;
+  end
+
+  def level_rank_link
+    if self.level?
+      self.level
+    elsif self.rank?
+      self.rank
+    elsif self.link?
+      self.link
+    end
+
+  end
 end

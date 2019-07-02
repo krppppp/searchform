@@ -30,4 +30,19 @@ module ApplicationHelper
     deck_cards.map{|m| m.card.price.blank? ? 0 : m.card.price }.sum
   end
 
+  def link_list(link_descriptions = [])
+    link_descriptions.collect.with_index do |item, index|
+      a_tag = link_descriptions.count == index+1 ? content_tag(:a, item[0], href: item[1]) : content_tag(:a, item[0], href: item[1]) + ', '
+      concat(a_tag)
+    end
+  end
+
+  def new_flag node
+    node.created_at > Time.zone.now - 1.week ? content_tag(:span, 'NEW', style: 'color:red;' ) : ''
+  end
+
+  def new_font node
+    node.created_at > Time.zone.now - 1.week ? content_tag(:font, 'NEW', color: 'red') : ''
+  end
+
 end

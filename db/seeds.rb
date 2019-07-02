@@ -94,40 +94,40 @@ when "full"
   # カテゴリ
 
   # 属性
-    create_categories({name: '闇', title: 0})
-    create_categories({name: '光', title: 0})
-    create_categories({name: '地', title: 0})
-    create_categories({name: '水', title: 0})
-    create_categories({name: '炎', title: 0})
-    create_categories({name: '風', title: 0})
-    create_categories({name: '神', title: 0})
+  #   create_categories({name: '闇', title: 0})
+  #   create_categories({name: '光', title: 0})
+  #   create_categories({name: '地', title: 0})
+  #   create_categories({name: '水', title: 0})
+  #   create_categories({name: '炎', title: 0})
+  #   create_categories({name: '風', title: 0})
+  #   create_categories({name: '神', title: 0})
 
   # 種族
-    create_categories({name: '悪魔族', title: 1})
-    create_categories({name: 'アンデット族', title: 1})
-    create_categories({name: '雷族', title: 1})
-    create_categories({name: '海竜族', title: 1})
-    create_categories({name: '岩石族', title: 1})
-    create_categories({name: '機械族', title: 1})
-    create_categories({name: '恐竜族', title: 1})
-    create_categories({name: '獣族', title: 1})
-    create_categories({name: '幻神獣族', title: 1})
-    create_categories({name: '昆虫族', title: 1})
-    create_categories({name: 'サイキック族', title: 1})
-    create_categories({name: '魚族', title: 1})
-    create_categories({name: '植物族', title: 1})
-    create_categories({name: '獣戦士族', title: 1})
-    create_categories({name: '戦士族', title: 1})
-    create_categories({name: '天使族', title: 1})
-    create_categories({name: '鳥獣族', title: 1})
-    create_categories({name: 'ドラゴン族', title: 1})
-    create_categories({name: '爬虫類族', title: 1})
-    create_categories({name: '炎族', title: 1})
-    create_categories({name: '魔法使い族', title: 1})
-    create_categories({name: '水族', title: 1})
-    create_categories({name: '創造神族', title: 1})
-    create_categories({name: '幻竜族', title: 1})
-    create_categories({name: 'サイバース族', title: 1})
+  #   create_categories({name: '悪魔族', title: 1})
+  #   create_categories({name: 'アンデット族', title: 1})
+  #   create_categories({name: '雷族', title: 1})
+  #   create_categories({name: '海竜族', title: 1})
+  #   create_categories({name: '岩石族', title: 1})
+  #   create_categories({name: '機械族', title: 1})
+  #   create_categories({name: '恐竜族', title: 1})
+  #   create_categories({name: '獣族', title: 1})
+  #   create_categories({name: '幻神獣族', title: 1})
+  #   create_categories({name: '昆虫族', title: 1})
+  #   create_categories({name: 'サイキック族', title: 1})
+  #   create_categories({name: '魚族', title: 1})
+  #   create_categories({name: '植物族', title: 1})
+  #   create_categories({name: '獣戦士族', title: 1})
+  #   create_categories({name: '戦士族', title: 1})
+  #   create_categories({name: '天使族', title: 1})
+  #   create_categories({name: '鳥獣族', title: 1})
+  #   create_categories({name: 'ドラゴン族', title: 1})
+  #   create_categories({name: '爬虫類族', title: 1})
+  #   create_categories({name: '炎族', title: 1})
+  #   create_categories({name: '魔法使い族', title: 1})
+  #   create_categories({name: '水族', title: 1})
+  #   create_categories({name: '創造神族', title: 1})
+  #   create_categories({name: '幻竜族', title: 1})
+  #   create_categories({name: 'サイバース族', title: 1})
 
   # テーマ
     create_categories({name: 'A・O・J（ｱｰﾘｵﾌﾞｼﾞｬｽﾃｨｽ）', title: 2})
@@ -384,7 +384,8 @@ when "full"
     create_tournament_decks({tournament_id: 1, deck_id: 1})
 when "deck"
   # サンプルユーザ
-  create_user({name: 'asdf', email: 'asdf@asdf', password: 'asdfasdf'})
+  create_user({name: 'asdf', email: 'asdf@asdf', password: 'asdfasdf', flag: 0})
+  create_user({name: 'admin', email: 'admin@admin', password: 'adminadmin', flag: 1})
 
   # サンプルデッキ
   1.upto(5) do |num|
@@ -406,6 +407,26 @@ when "deck"
 
   # サンプル大会デッキ
   create_tournament_decks({tournament_id: 1, deck_id: 1})
+when "deck_card"
+  # サンプルデッキカード
+  1.upto(5) do |num|
+    count = 0
+    max = rand(40..60)
+    extra = rand(5..15)
+
+    (Card.all.map{|m| m if m.extra?}.compact.sample(extra) | Card.all.sample(max - extra)).each do |card|
+      p card
+      rand = (rand(1..3)*rand(1..3)/3.0).ceil
+      count = count + rand
+      p max.to_s + ':' + count.to_s
+      if (count > max)
+        break
+      else
+        create_deck_cards({deck_id: num, card_id: card.id, deck_type: card.random_categolize, count: rand})
+      end
+
+    end
+  end
 else
   puts "Unknown: " + ENV["data"]
 end
