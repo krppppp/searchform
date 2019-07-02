@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :decks
+  enum flag: %i(general admin), _prefix: :user
 end

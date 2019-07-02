@@ -59,6 +59,7 @@ class InitSchema < ActiveRecord::Migration[5.2]
     create_table :users, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
       t.string         :name, comment: '名前'
       t.string         :email, null: false, default: "", comment: 'メールアドレス'
+      t.integer        :flag, comment: 'フラグ', default: 0
 
       t.string :encrypted_password, null: false, default: ""
 
@@ -108,6 +109,8 @@ class InitSchema < ActiveRecord::Migration[5.2]
       t.string         :name, comment: '名前'
       t.references     :category, comment: 'カテゴリ'
       t.references     :user, comment: 'ユーザ'
+      t.text           :main, comment: 'メイン'
+      t.text           :side, comment: 'サイド'
       t.timestamps
     end
 

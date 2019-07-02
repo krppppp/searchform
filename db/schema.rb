@@ -80,6 +80,8 @@ ActiveRecord::Schema.define(version: 2019_06_24_150504) do
     t.string "name", comment: "名前"
     t.bigint "category_id", comment: "カテゴリ"
     t.bigint "user_id", comment: "ユーザ"
+    t.text "main", comment: "メイン"
+    t.text "side", comment: "サイド"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_decks_on_category_id"
@@ -131,6 +133,7 @@ ActiveRecord::Schema.define(version: 2019_06_24_150504) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", comment: "名前"
     t.string "email", default: "", null: false, comment: "メールアドレス"
+    t.integer "flag", default: 0, comment: "フラグ"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

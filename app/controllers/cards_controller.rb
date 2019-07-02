@@ -4,7 +4,8 @@ class CardsController < ApplicationController
   def ajax_card
     @cards_search_form = CardsSearchForm.new(ajax_params)
     @cards = @cards_search_form.search_deck_cards(ajax_params)
-    render json: {status: 200, data: @cards.blank? ? [] : @cards.first(50).map{|s| {id: s.id, name: s.name, attribute: s.attribute_id, type: s.categolized? }}}
+
+    render json: {status: 200, data: @cards.blank? ? [] : (params[:type] == 'full' ? @cards : @cards.first(100)).map{|s| {id: s.id, name: s.name, attribute_id: s.attribute_id, type: s.num_categolized?, effect: (s.magic? || s.trap?) ? s.effect.to_s.gsub('効果', '').gsub(/\r\n|\r|\n/, "").gsub(/罠|魔法/, '') : '', level: s.level_rank_link }}}
   end
 
   # GET /cards
@@ -14,10 +15,9 @@ class CardsController < ApplicationController
   end
 
   def search
-    p search_params
     @cards_search_form = CardsSearchForm.new(search_params)
     @cards_all = @cards_search_form.search_card(search_params)
-    @cards = Kaminari.paginate_array(@cards_all).page(params[:page]).per(10)
+    @cards = Kaminari.paginate_array(@cards_all).page(params[:page]).per(100)
     @attribute_images = [
         'attribute_icon_dark.png',
         'attribute_icon_light.png',
