@@ -1,0 +1,15 @@
+current directory: /Users/krppppp/RubymineProjects/yugiou/vendor/bundle/ruby/2.4.0/gems/bindex-0.7.0/ext/skiptrace
+/Users/krppppp/.rbenv/versions/2.4.0/bin/ruby -r ./siteconf20190710-26359-1s9sf45.rb extconf.rb
+creating Makefile
+
+current directory: /Users/krppppp/RubymineProjects/yugiou/vendor/bundle/ruby/2.4.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/krppppp/RubymineProjects/yugiou/vendor/bundle/ruby/2.4.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/cruby.bundle
+
+current directory: /Users/krppppp/RubymineProjects/yugiou/vendor/bundle/ruby/2.4.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20190710-26359-1sw4cnf/skiptrace

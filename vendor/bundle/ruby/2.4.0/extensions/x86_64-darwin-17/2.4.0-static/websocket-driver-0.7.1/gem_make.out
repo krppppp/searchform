@@ -1,0 +1,15 @@
+current directory: /Users/krppppp/RubymineProjects/yugiou/vendor/bundle/ruby/2.4.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+/Users/krppppp/.rbenv/versions/2.4.0/bin/ruby -r ./siteconf20190710-26359-1m8icdu.rb extconf.rb
+creating Makefile
+
+current directory: /Users/krppppp/RubymineProjects/yugiou/vendor/bundle/ruby/2.4.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/krppppp/RubymineProjects/yugiou/vendor/bundle/ruby/2.4.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/krppppp/RubymineProjects/yugiou/vendor/bundle/ruby/2.4.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20190710-26359-l74j2k

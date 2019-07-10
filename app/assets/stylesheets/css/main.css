@@ -641,7 +641,7 @@ body {
 @media screen and (min-width: 737px) {
 
     .row > * {
-        padding: 25px 0 0 25px;
+        padding: 10px;
     }
 
     .row {
@@ -856,7 +856,7 @@ body {
 @media screen and (max-width: 736px) {
 
     .row > * {
-        padding: 20px 0 0 20px;
+        padding: 10px;
     }
 
     .row {
@@ -1253,7 +1253,6 @@ button,
     font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
-    background: seagreen;
     color: #fff;
     border: 0;
     line-height: 1em;
@@ -1650,7 +1649,7 @@ table.default thead {
 
 #main-wrapper {
     background: #fff;
-    border-top: solid 5px #b1ddab;
+    border-top: solid 5px #3d70bb;
     border-bottom: solid 5px #c1cac5;
 }
 
@@ -2022,7 +2021,7 @@ table.default thead {
     }
 
     #nav li.current a {
-        background: #b1ddab;
+        background: #3d70bb;
         color: #fff;
     }
 
@@ -2560,7 +2559,7 @@ table.default thead {
         position: absolute;
         left: 0;
         top: 0;
-        background: #b1ddab;
+        background: #3d70bb;
         width: 44px;
         height: 44px;
         content: '\f0c9';

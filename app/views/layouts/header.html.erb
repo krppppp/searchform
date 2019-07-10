@@ -1,5 +1,219 @@
+<header class="p-header">
+  <div class="p-header-band u-med-hidden">
+    <div class="u-container">
+      <div class="p-header-band__left">
+        <ul class="p-horizontal-list">
+          <li class="p-horizontal-list__item">
+            <i class="fa fa-caret-right p-horizontal-list__icon"></i>
+            <span class="p-header-band__text">遊戯王ならお任せあれ！</span>
+          </li>
+          <li class="p-horizontal-list__item">
+            <i class="fa fa-caret-right p-horizontal-list__icon"></i><span class="p-header-band__text">公開されたデッキを検索しよう！</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="u-container">
+    <div class="p-header__inner">
+      <div class="u-med-block js-loginHeader">
+        <button class="p-header__icon--wrap js-hamburgerMenu">
+          <i class="p-header__icon--a fa fa-bars u-med-block"></i>
+          <span class="p-header__icon--text">メニュー</span>
+        </button>
+      </div>
+      <div class="p-header__brand">
+        <a href="#">
+          サイトロゴ
+        </a>
+      </div>
+      <div class=" js-loginHeader">
+        <div class="p-header__menu u-med-hidden">
+          <div class="p-header__col--c u-med-hidden  js-heaederNotification">
+            <div class="p-header__btn js-notification">
+                <span class="c-bordered-btn c-bordered-btn--2line js-notificationBtn">
+                   <i class="p-header__icon fa fa-bell-o"></i>
+                   <span class="c-bordered-btn__second-line">お知らせ</span>
+                </span>
+              <span class="p-header__badge  js-notificationBadge"></span>
+            </div>
+          </div>
+          <div class="p-header__col--d u-med-hidden">
+            <div class="p-header__row">ようこそ
+
+              <a class="p-header_ellipsis-text u-text-bold js-headerUserName" href=""></a>
+              [<a href="https://job.j-sen.jp/member/logout.htm"
+                  onclick="jlEvent.event({'category':'logout','action': 'click','label': 'headerLogoutLink'})">
+              ログアウト</a>]
+            </div>
+            <div class="p-header__row">
+              <ul class="p-horizontal-list">
+                <li class="p-horizontal-list__item">
+                  <i class="fa fa-caret-right p-horizontal-list__icon"></i>
+                  <a class="" href="">マイデッキ</a>
+                </li>
+                <li class="p-horizontal-list__item">
+                  <i class="fa fa-caret-right p-horizontal-list__icon"></i>
+                  <a href="">足跡</a>
+                </li>
+                <li class="p-horizontal-list__item">
+                  <i class="fa fa-caret-right p-horizontal-list__icon"></i>
+                  <a href="">マイページ</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="u-med-block">
+          <div class="p-header__icon-menu">
+            <a href="https://job.j-sen.jp/mypage/index.htm" class="p-header__icon--wrap">
+              <i class="p-header__icon--c fa fa-user u-med-block"></i>
+              <span class="p-header__icon--text">マイページ</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</header>
+
+<div class="js-notificationMed"></div>
+<div class="c-collapse-navi__wrap js-collapseNaviWrap u-is-hidden">
+  <nav class="c-collapse-navi js-collapseNavi">
+    <div class="c-collapse-navi__header">
+      <div class="c-collapse-navi__header-icn-wrap js-collapseNaviClose">
+        <i class="c-collapse-navi__header-icn">×</i>
+        <p class="c-collapse-navi__header-icn-txt">閉じる</p>
+      </div>
+      <div class="c-collapse-navi__header-text-wrap u-is-hidden js-isLogin">
+        <p>ようこそ <span class="js-headerUserName"></span></p>
+        <p>[<a href="https://job.j-sen.jp/member/logout.htm?jl_ref=navigation_menu">ログアウト</a>]</p>
+      </div>
+    </div>
+    <div class="c-collapse-navi__block">
+      <ul>
+        <li class="c-collapse-navi__list">
+          <a class="c-collapse-navi__list-link" href="https://job.j-sen.jp/?jl_ref=navigation_menu">
+                        <span class="c-collapse-navi__list-icn-wrap">
+                            <i class="c-collapse-navi__list-icn fa fa-search"></i>
+                        </span>
+            <span class="c-collapse-navi__list-txt">求人を探す</span>
+          </a>
+        </li>
+        <li class="c-collapse-navi__list">
+          <a class="c-collapse-navi__list-link"
+             href="https://job.j-sen.jp/mypage/scoutList?jl_ref=navigation_menu">
+                        <span class="c-collapse-navi__list-icn-wrap">
+                            <i class="c-collapse-navi__list-icn icn icn-scout"></i>
+                        </span>
+            <span class="c-collapse-navi__list-txt">スカウト</span>
+            <span class="c-collapse-navi__list-badge u-is-hidden js-unreadScoutCountBadge"></span>
+          </a>
+        </li>
+        <li class="c-collapse-navi__list">
+          <a class="c-collapse-navi__list-link"
+             href="https://job.j-sen.jp/mypage/consider.htm?jl_ref=navigation_menu&amp;select=favorite">
+                        <span class="c-collapse-navi__list-icn-wrap">
+                            <i class="c-collapse-navi__list-icn fa fa-heart"></i>
+                        </span>
+            <span class="c-collapse-navi__list-txt">気になるリスト</span>
+            <span class="c-collapse-navi__list-badge u-is-hidden js-unreadMutualFavoriteCountBadge"></span>
+          </a>
+        </li>
+        <li class="c-collapse-navi__list">
+          <a class="c-collapse-navi__list-link js-referralLink"
+             data-login-href="/mypage/consider.htm?jl_ref=navigation_menu&select=referral"
+             data-logout-href="/nakoudo?jl_ref=navigation_menu">
+                        <span class="c-collapse-navi__list-icn-wrap">
+                            <i class="c-collapse-navi__list-icn icn icn-headset"></i>
+                        </span>
+            <span class="c-collapse-navi__list-txt">転職ナコウド</span>
+            <span class="c-collapse-navi__list-badge u-is-hidden js-unreadReferralCountBadge"></span>
+          </a>
+        </li>
+        <li class="c-collapse-navi__list u-is-hidden js-isLogin">
+          <a class="c-collapse-navi__list-link"
+             href="https://job.j-sen.jp/mypage/applicated.htm?jl_ref=navigation_menu">
+                        <span class="c-collapse-navi__list-icn-wrap">
+                            <i class="c-collapse-navi__list-icn fa fa-list"></i>
+                        </span>
+            <span class="c-collapse-navi__list-txt">応募後の選考状況</span>
+            <span class="c-collapse-navi__list-badge u-is-hidden js-unreadMessageCountBadge"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="c-collapse-navi__block u-is-hidden js-isLogin">
+      <ul>
+        <li class="c-collapse-navi__list">
+          <a class="c-collapse-navi__list-link"
+             href="https://job.j-sen.jp/editMember/hope?jl_ref=navigation_menu">
+                        <span class="c-collapse-navi__list-icn-wrap">
+                            <i class="c-collapse-navi__list-icn fa fa-check"></i>
+                        </span>
+            <span class="c-collapse-navi__list-txt">希望条件</span>
+          </a>
+        </li>
+        <li class="c-collapse-navi__list">
+          <a class="c-collapse-navi__list-link"
+             href="https://job.j-sen.jp/editMember/resume?jl_ref=navigation_menu">
+                        <span class="c-collapse-navi__list-icn-wrap">
+                            <i class="c-collapse-navi__list-icn fa fa-edit"></i>
+                        </span>
+            <span class="c-collapse-navi__list-txt">WEB履歴書</span>
+          </a>
+        </li>
+        <li class="c-collapse-navi__list">
+          <a class="c-collapse-navi__list-link"
+             href="https://job.j-sen.jp/editMember/scout?jl_ref=navigation_menu">
+                        <span class="c-collapse-navi__list-icn-wrap">
+                            <i class="c-collapse-navi__list-icn fa fa-id-card"></i>
+                        </span>
+            <span class="c-collapse-navi__list-txt">スキルシート</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="c-collapse-navi__block u-is-hidden js-isLogin">
+      <ul>
+        <li class="c-collapse-navi__list">
+          <a class="c-collapse-navi__list-link"
+             href="https://job.j-sen.jp/mypage/config.htm?jl_ref=navigation_menu">
+                        <span class="c-collapse-navi__list-icn-wrap">
+                            <i class="c-collapse-navi__list-icn fa fa-cog"></i>
+                        </span>
+            <span class="c-collapse-navi__list-txt">設定</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="c-collapse-navi__btn-area u-is-hidden js-isLogout">
+      <div class="c-collapse-navi__row">
+        <p class="u-text-center"><a
+          href="https://job.j-sen.jp/member/new_minimum?jl_ref=navigation_menu">会員登録</a>すると<br>希望求人に出会いやすくなります
+        </p>
+      </div>
+      <div class="c-collapse-navi__row">
+        <a class="c-shadow-btn__wrap c-shadow-btn__wrap--white"
+           href="https://job.j-sen.jp/member/new_minimum?jl_ref=navigation_menu">
+          <div class="c-shadow-btn c-shadow-btn--color_garnet">まずは会員登録(無料)</div>
+        </a>
+      </div>
+      <div class="c-collapse-navi__row">
+        <a href="https://job.j-sen.jp/member/login.htm?jl_ref=navigation_menu"
+           class="c-shadow-btn__wrap c-shadow-btn__wrap--white">
+          <span class="c-shadow-btn c-shadow-btn--color_sapphire">ログイン</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
 <nav id="nav">
-  <ul style="min-width: 960px;">
+  <ul>
     <li>
       <%= link_to 'Home', root_path %>
     </li>
@@ -7,13 +221,15 @@
       <%= link_to 'カードリスト▼', root_path %>
       <ul>
         <li><%= link_to 'カード検索', root_path %></li>
-        <li><a href="http://localhost:3000/cards/search?utf8=%E2%9C%93&cards_search_form%5Beffect_category%5D=&cards_search_form%5Bkeyword%5D=&cards_search_form%5Bname%5D=0&cards_search_form%5Bname%5D=1&cards_search_form%5Bname_kana%5D=0&cards_search_form%5Bname_kana%5D=1&cards_search_form%5Btext%5D=0&cards_search_form%5Btext%5D=1&cards_search_form%5Bcard_monster1%5D=&cards_search_form%5Bcard_monster2%5D=&cards_search_form%5Btribe%5D=&cards_search_form%5Battribute%5D=&cards_search_form%5Blevel_low%5D=&cards_search_form%5Blevel_high%5D=&cards_search_form%5Blevel%5D=0&cards_search_form%5Blevel%5D=1&cards_search_form%5Brank%5D=0&cards_search_form%5Brank%5D=1&cards_search_form%5Bpendulum_blue_low%5D=&cards_search_form%5Bpendulum_blue_high%5D=&cards_search_form%5Bpendulum_red_low%5D=&cards_search_form%5Bpendulum_red_high%5D=&cards_search_form%5Blink_low%5D=&cards_search_form%5Blink_high%5D=&cards_search_form%5Bleft_up%5D=0&cards_search_form%5Bup%5D=0&cards_search_form%5Bright_up%5D=0&cards_search_form%5Bleft%5D=0&cards_search_form%5Bright%5D=0&cards_search_form%5Bleft_down%5D=0&cards_search_form%5Bdown%5D=0&cards_search_form%5Bright_down%5D=0&cards_search_form%5Boffensive_power_low%5D=&cards_search_form%5Boffensive_power_high%5D=&cards_search_form%5Boffensive_power_nil%5D=0&cards_search_form%5Bdeffensive_power_low%5D=&cards_search_form%5Bdeffensive_power_high%5D=&cards_search_form%5Bdeffensive_power_nil%5D=0&cards_search_form%5Bno_restriction%5D=0&cards_search_form%5Bsemi_restriction%5D=0&cards_search_form%5Bsemi_restriction%5D=1&cards_search_form%5Brestriction%5D=0&cards_search_form%5Brestriction%5D=1&cards_search_form%5Bban%5D=0&cards_search_form%5Bban%5D=1&commit=%E6%A4%9C%E7%B4%A2">禁止・制限カード</a></li>
+        <li>
+          <a href="http://localhost:3000/cards/search?utf8=%E2%9C%93&cards_search_form%5Beffect_category%5D=&cards_search_form%5Bkeyword%5D=&cards_search_form%5Bname%5D=0&cards_search_form%5Bname%5D=1&cards_search_form%5Bname_kana%5D=0&cards_search_form%5Bname_kana%5D=1&cards_search_form%5Btext%5D=0&cards_search_form%5Btext%5D=1&cards_search_form%5Bcard_monster1%5D=&cards_search_form%5Bcard_monster2%5D=&cards_search_form%5Btribe%5D=&cards_search_form%5Battribute%5D=&cards_search_form%5Blevel_low%5D=&cards_search_form%5Blevel_high%5D=&cards_search_form%5Blevel%5D=0&cards_search_form%5Blevel%5D=1&cards_search_form%5Brank%5D=0&cards_search_form%5Brank%5D=1&cards_search_form%5Bpendulum_blue_low%5D=&cards_search_form%5Bpendulum_blue_high%5D=&cards_search_form%5Bpendulum_red_low%5D=&cards_search_form%5Bpendulum_red_high%5D=&cards_search_form%5Blink_low%5D=&cards_search_form%5Blink_high%5D=&cards_search_form%5Bleft_up%5D=0&cards_search_form%5Bup%5D=0&cards_search_form%5Bright_up%5D=0&cards_search_form%5Bleft%5D=0&cards_search_form%5Bright%5D=0&cards_search_form%5Bleft_down%5D=0&cards_search_form%5Bdown%5D=0&cards_search_form%5Bright_down%5D=0&cards_search_form%5Boffensive_power_low%5D=&cards_search_form%5Boffensive_power_high%5D=&cards_search_form%5Boffensive_power_nil%5D=0&cards_search_form%5Bdeffensive_power_low%5D=&cards_search_form%5Bdeffensive_power_high%5D=&cards_search_form%5Bdeffensive_power_nil%5D=0&cards_search_form%5Bno_restriction%5D=0&cards_search_form%5Bsemi_restriction%5D=0&cards_search_form%5Bsemi_restriction%5D=1&cards_search_form%5Brestriction%5D=0&cards_search_form%5Brestriction%5D=1&cards_search_form%5Bban%5D=0&cards_search_form%5Bban%5D=1&commit=%E6%A4%9C%E7%B4%A2">禁止・制限カード</a>
+        </li>
       </ul>
     </li>
     <li>
       <%= link_to 'デッキ▼', decks_path %>
       <ul>
-        <li><%= link_to 'デッキ一覧', decks_path %></li>
+        <li><%= link_to 'デッキ一content content-right覧', decks_path %></li>
         <li>
           <% if current_user %>
             <%= link_to 'マイデッキ作成', new_deck_path %>
@@ -27,7 +243,9 @@
       <ul>
         <li><%= link_to '大会一覧', tournaments_path %></li>
         <li><a href="https://yugioh-list.com/links">サイト情報</a></li>
-        <li><a href="mailto:master@yugioh-list.com?subject=【お問い合わせ】遊戯王カードリスト・評価・オリカ&amp;body=https://yugioh-list.com/decks/dtl/60709">お問い合わせ</a></li>
+        <li>
+          <a href="mailto:master@yugioh-list.com?subject=【お問い合わせ】遊戯王カードリスト・評価・オリカ&amp;body=https://yugioh-list.com/decks/dtl/60709">お問い合わせ</a>
+        </li>
       </ul>
     </li>
     <li>
@@ -43,7 +261,7 @@
         <li>
           <%= link_to 'ユーザ登録', new_user_registration_path %>
         </li>
-        <% if current_user.user_admin? %>
+        <% if current_user&.user_admin? %>
           <li>
             <%= link_to '大会登録', new_tournament_path %>
           </li>
